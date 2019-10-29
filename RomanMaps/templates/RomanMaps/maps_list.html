@@ -1,0 +1,69 @@
+    {% extends 'RomanMaps/wrapper.html' %}
+    
+    {% block content %}
+    <div class="container-fluid p-0">
+<!--    <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
+        <a tabindex="0" class="btn btn-lg btn-danger" role="button" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?">Dismissible popover</a>
+        <div id="carouselMaps" class="carousel slide" data-ride="carousel" data-touch="true">
+            <div class="carousel-inner vh-100">
+            {% for map in maps %}
+                {% if forloop.first %}
+                <div class="carousel-item h-100 active">
+                    <img src="{{map.image.url}}" alt="" class="rounded mx-auto d-block mw-100 mh-100">
+                    <object data="{{map.image.url}}" type="image/svg+xml" class="rounded mx-auto d-block mw-100 mh-100"></object>
+                </div>
+                {% else %}
+                <div class="carousel-item h-100">
+                    <img src="{{map.image.url}}" alt="" class="rounded mx-auto d-block mw-100 mh-100">
+                    <object data="{{map.image.url}}" type="image/svg+xml" class="rounded mx-auto d-block mw-100 mh-100"></object>
+                </div>
+                {% endif %}
+            {% endfor %}
+            </div>
+            <a class="carousel-control-prev" href="#carouselMaps" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselMaps" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div> -->
+        {% for map in maps %}
+            {% for image in map.images.all %}
+                <img src="{{image.image.url}}" alt="" class="">
+            {% endfor %}
+        {% endfor %}
+        <svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            viewBox="0 0 1920 1080" style="enable-background:new 0 0 1920 1080;" xml:space="preserve">
+        <style type="text/css">
+            .st0{opacity:0.5;}
+            .st1{fill:#0071BC;}
+        </style>
+        <g id="zona1" class="st0" data-toggle="modal" data-target="#exampleModal">
+            <rect x="31.5" y="28.5" class="st1" width="373" height="354"/>
+            <path d="M404,29v353H32V29H404 M405,28H31v355h374V28L405,28z"/>
+        </g>
+        </svg>
+                <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                ...
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
