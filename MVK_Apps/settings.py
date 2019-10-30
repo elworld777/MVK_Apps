@@ -76,8 +76,25 @@ WSGI_APPLICATION = 'MVK_Apps.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'mvkdb',
+        'USER': 'mvkuser',
+        'PASSWORD': 'Mt5pga9AZ',
+        'HOST': 'localhost',   # Or an IP Address that your database is hosted on
+        'PORT': '3306',
+        #optional:
+        'OPTIONS': {
+            'charset' : 'utf8',
+            'use_unicode' : True,
+             'init_command': 'SET '
+                'storage_engine=INNODB,'
+                'character_set_connection=utf8,'
+                'collation_connection=utf8_bin'
+                #'sql_mode=STRICT_TRANS_TABLES,'    # see note below
+                #'SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED',
+        },
+        'TEST_CHARSET': 'utf8',
+        'TEST_COLLATION': 'utf8_general_ci',
     }
 }
 
