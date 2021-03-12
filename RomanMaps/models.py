@@ -8,4 +8,4 @@ class Maps(models.Model):
 
 class Gallery(models.Model):
     image = models.ImageField(upload_to='romanmaps/gallery')
-    maps = models.ForeignKey(Maps, on_delete=models.CASCADE, related_name='images')
+    maps = models.ForeignKey(Maps, on_delete=models.CASCADE, related_name='images') 
