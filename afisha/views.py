@@ -20,8 +20,8 @@ def index(request):
     return render(request, 'category_list.html', context)
 
 
-def exhibitions(request):
-    category = Category.objects.all()
+def exhibitions(request, pk):
+    category = Category.objects.filter(parent_category=pk)
     context = {
         'category_list': category
     }
