@@ -24,8 +24,9 @@ class Entry(models.Model):
         Category, on_delete=models.SET_NULL, null=True, blank=True)
     preview = models.ImageField("Превью", upload_to="preview/")
     width = models.PositiveSmallIntegerField("Ширина", default=1)
-    date_start = models.DateField("Дата начала", default=date.today)
-    date_end = models.DateField("Дата окончания", default=date.today)
+    date_start = models.DateField("Дата начала", null=True, blank=True)
+    date_end = models.DateField("Дата окончания", null=True, blank=True)
+    duration = models.TextField("Продолжительность", null=True, blank=True)
     price = models.TextField("Цены")
     text = models.TextField("Описание")
 
