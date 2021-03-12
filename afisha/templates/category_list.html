@@ -1,0 +1,9 @@
+{% extends 'RomanMaps/wrapper.html' %} 
+
+{% block content %} 
+
+    {% for category in category_list %} 
+        {{category.name}}
+    {% endfor %} 
+
+{% endblock %}
