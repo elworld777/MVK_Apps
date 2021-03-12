@@ -4,6 +4,7 @@ from datetime import date
 
 class Category(models.Model):
     name = models.CharField("Категория", max_length=150)
+    icon = models.ImageField("Иконка", upload_to="icon/")
     url = models.SlugField("Ссылка", max_length=160, unique=True)
     parent_category = models.ForeignKey(
         'self', on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Родительская категория')
