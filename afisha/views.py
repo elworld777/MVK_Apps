@@ -15,4 +15,4 @@ def index(request):
     context = {
         'category_list' : category
     }
-    return render(request, 'afisha/category_list.html', context)
+    return render(request, 'category_list.html', context)
