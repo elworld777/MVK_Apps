@@ -2,8 +2,8 @@
 
 {% block content %} 
 
-    {% for category in category_list %} 
-        {{category.name}}
+    {% for category in category_list %}
+        <a href="{{category.url}}">{{category.name}}</a>
     {% endfor %} 
 
 {% endblock %}
