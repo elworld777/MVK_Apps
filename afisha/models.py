@@ -21,7 +21,7 @@ class Entry(models.Model):
     category = models.ForeignKey(
         Category, on_delete=models.SET_NULL, null=True, blank=True)
     preview = models.ImageField("Превью", upload_to="preview/")
-    width = models.PositiveSmallIntegerField("Ширина", max_length=2, default=1)
+    width = models.PositiveSmallIntegerField("Ширина", default=1)
     date_start = models.DateField("Дата начала", default=date.today)
     date_end = models.DateField("Дата окончания", default=date.today)
     price = models.TextField("Цены")
