@@ -22,7 +22,8 @@ def index(request):
 
 def exhibitions(request, pk):
     category = Category.objects.filter(url=pk)
+    subcategory = category.category_set.all()
     context = {
-        'category_list': category.category_set.all()
+        'category_list': subcategory
     }
     return render(request, 'category_list.html', context)
