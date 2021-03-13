@@ -11,7 +11,7 @@ class Category(models.Model):
         'self', on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Родительская категория')
 
     def __str__(self):
-        return self.url
+        return self.name
 
     class Meta:
         verbose_name = "Категория"
