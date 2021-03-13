@@ -49,7 +49,20 @@ class Gallery(models.Model):
 
 
 class Exhibit(models.Model):
+    name = models.CharField("Название", max_length=150)
     image = models.ImageField("Изображение", upload_to='gallery/')
+
+    def __str__(self):
+        return self.name
 
     class Meta:
         verbose_name = "Экспонат"
+        verbose_name_plural = "Экспонаты"
+
+
+class Setting(models.Model):
+    exhibit = (Exhibit, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Экспонат')
+
+    class Meta:
+        verbose_name = "Настройки"
+        verbose_name_plural = "Настройки"

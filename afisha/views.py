@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView
 from afisha.models import Category
+from afisha.models import Setting
 
 # Create your views here.
 
@@ -14,11 +15,12 @@ class ListMaps(ListView):
 
 def index(request):
     category = Category.objects.filter(parent_category=None)
+    setting = Setting.objects.all()[0]
     context = {
-        'category_list': category
+        'category_list': category,
+        'setting': setting
     }
     return render(request, 'category_list.html', context)
-
 
 def exhibitions(request, pk):
     category = Category.objects.get(url=pk).category_set.all()
