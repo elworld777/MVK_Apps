@@ -13,7 +13,7 @@ class ListMaps(ListView):
 
 
 def index(request):
-    category = Category.objects.all()
+    category = Category.objects.filter(parent_category=None)
     context = {
         'category_list': category
     }
