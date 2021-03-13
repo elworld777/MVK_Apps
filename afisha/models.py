@@ -61,7 +61,8 @@ class Exhibit(models.Model):
 
 
 class Setting(models.Model):
-    exhibit = (Exhibit, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Экспонат')
+    exhibit = models.ForeignKey(
+        Exhibit, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Экспонат')
 
     class Meta:
         verbose_name = "Настройки"
