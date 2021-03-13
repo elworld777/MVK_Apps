@@ -46,3 +46,10 @@ class Gallery(models.Model):
     class Meta:
         verbose_name = "Галерея"
         verbose_name_plural = "Галереи"
+
+
+class Exhibit(models.Model):
+    image = models.ImageField("Изображение", upload_to='gallery/')
+
+    class Meta:
+        verbose_name = "Экспонат"
