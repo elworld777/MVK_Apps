@@ -59,14 +59,9 @@ class Exhibit(models.Model):
         verbose_name = "Экспонат"
         verbose_name_plural = "Экспонаты"
 
-
 class Setting(models.Model):
-    name = models.CharField("Название", max_length=150)
     exhibit = models.ForeignKey(
         Exhibit, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Экспонат')
-
-    def __str__(self):
-        return self.name
 
     class Meta:
         verbose_name = "Настройки"
