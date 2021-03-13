@@ -61,6 +61,7 @@ class Exhibit(models.Model):
 
 
 class Setting(models.Model):
+    name = models.CharField("Название", max_length=150)
     exhibit = models.ForeignKey(
         Exhibit, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Экспонат')
 
