@@ -15,8 +15,20 @@ body {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
+.footer {
+    background-color: rgba(255, 255, 255, 0.2);
+    height: 100px;
+}
+
 .header-main {
     height: 223px;
+}
+
+.header-entry {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 20px;
 }
 
 .panel {
@@ -66,4 +78,26 @@ h3 {
     position: absolute;
     right: 79px;
     bottom: 32px;
+}
+
+.entry-list {
+    height: 1580px;
+}
+
+.entry-list::-webkit-scrollbar {
+    width: 20px;
+    background-color: rgba(231, 243, 248, 0.3);
+    border-radius: 10px;
+}
+
+.entry-list::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    /* box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); */
+    background-color: rgba(231, 243, 248, 0.8);
+}
+
+.home{
+    background: url("/media/home.png") no-repeat center;
+    background-size: contain;
+    margin: 10px;
 }

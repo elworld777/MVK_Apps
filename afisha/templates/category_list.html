@@ -13,7 +13,7 @@
     </div>
     <div class="row text-center cat">
     {% for category in category_list %}
-        <div class="col-6 offset-3 p-4 mb-4 border border-white rounded-lg"><a href="{{category.url}}">{{category.name}}</a></div>
+        <div class="col-6 offset-3 p-4 mb-4 border border-white rounded-lg"><a class="stretched-link" href="{{category.url}}">{{category.name}}</a></div>
     {% endfor %}
     </div>
     <img class="exp" src="{{setting.exhibit.image.url}}" alt="">
