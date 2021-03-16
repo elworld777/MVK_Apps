@@ -28,7 +28,8 @@ def exhibitions(request, pk):
     entry = Category.objects.get(url=pk).entry_set.all()
     context = {
         'category_list': category,
-        'entry_list': entry
+        'entry_list': entry,
+        'url': pk
     }
     return render(request, 'entry_list.html', context)
 
