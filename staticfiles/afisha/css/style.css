@@ -29,6 +29,7 @@ body {
     font-weight: normal;
     font-size: 18px;
     line-height: 20px;
+    height: 200px;
 }
 
 .panel {
@@ -81,7 +82,7 @@ h3 {
 }
 
 .entry-list {
-    height: 1580px;
+    height: 1570px;
 }
 
 .entry-list::-webkit-scrollbar {
