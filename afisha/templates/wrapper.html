@@ -16,6 +16,9 @@
     <script src="{% static "js/jquery-3.5.1.min.js" %}"></script>
     <script src="{% static "js/bootstrap.min.js" %}"></script>
     <script src="{% static "afisha/js/main.js" %}"></script>
-    <script type="text/javascript"> 
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.carousel').carousel({{ id }});
+        });
     </script>
 </html>
