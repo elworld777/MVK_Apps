@@ -45,12 +45,12 @@
                         {{ entry.date_start|date:"d.m.Y" }} – {{ entry.date_end|date:"d.m.Y" }}
                     </div>
                     <div class="col-12 price align-self-end">
-                        {{ entry.price|linebreaks }}
+                        {{ entry.price|linebreaksbr }}
                     </div>
                   </div>
                 </div>
                 <div class="col-12 my-5 description">
-                    {{ entry.text|linebreaks }}
+                    {{ entry.text|linebreaksbr }}
                 </div>
                 {% for image in entry.images.all %}
                     <div class="col-4 p-2">
