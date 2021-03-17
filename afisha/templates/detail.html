@@ -45,12 +45,27 @@
                         {{ entry.date_start|date:"d.m.Y" }} – {{ entry.date_end|date:"d.m.Y" }}
                     </div>
                     <div class="col-12 price align-self-end">
-                        {{ entry.price|linebreaksbr }}
+                        {% if entry.price is None %}
+                            <h4>СТОИМОСТЬ ПОСЕЩЕНИЯ</h4>
+                            <p>Дети младше 16 лет – бесплатно</p>
+                            <h4>Одной экспозиции:</h4>
+                            <p>Посетитель без льгот – 80 руб.<br>
+                                Пенсионер – 40 руб.<br>
+                                Студент – 40 руб.<br>
+                                Школьник старше 16 лет – 40 руб.</p>
+                             <h4>Всех экспозиций:</h4>
+                            <p>Посетитель без льгот – 150 руб.<br>
+                                Пенсионер – 75 руб.<br>
+                                Студент – 75 руб.<br>
+                                Школьник старше 16 лет – 75 руб.</p>
+                        {% else %}
+                            {{ entry.price|linebreaksbr }}
+                        {% endif %}
                     </div>
                   </div>
                 </div>
                 <div class="col-12 my-5 description">
-                    {{ entry.text|linebreaksbr }}
+                    {{ entry.text|linebreaks }}
                 </div>
                 {% for image in entry.images.all %}
                     <div class="col-4 p-2">

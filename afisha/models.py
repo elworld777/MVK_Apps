@@ -28,7 +28,7 @@ class Entry(models.Model):
     date_start = models.DateField("Дата начала", null=True, blank=True)
     date_end = models.DateField("Дата окончания", null=True, blank=True)
     duration = models.TextField("Продолжительность", null=True, blank=True)
-    price = models.TextField("Цены")
+    price = models.TextField("Цены", null=True, blank=True)
     text = models.TextField("Описание")
 
     def __str__(self):
