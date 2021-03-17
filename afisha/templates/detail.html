@@ -25,22 +25,60 @@
       </p>
     </div>
   </div>
-  <div class="row m-4 entry-list overflow-auto">
-    <div class="col">
-      <div class="row">
-        {{ id }}
-        {% for entry in entry_list %}
-        <div class="col-6 py-2">
-          <img src="{{ entry.detail.url }}" alt="" class="w-100" />
+    <div class="row m-4 entry-list overflow-auto">
+      <div class="col">
+        <div id="carouselEntry" class="carousel slide" data-ride="carousel" data-interval="0">
+          <div class="carousel-inner">
+            {% for entry in entry_list %}
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-8">
+                  <img class="w-100" src="{{ entry.detail.url }}" alt="">
+                </div>
+                <div class="col-4">
+                  <div class="row h-100">
+                    <div class="col-12 duration">
+                      {{ entry.date_start }} – {{ entry.date_end }}
+                    </div>
+                    <div class="col-12 price align-self-end">
+                        {{ entry.price }}
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 my-5 description">
+                  {{ entry.text }}
+                </div>
+                {% for image in entry.images.all %}
+                    <div class="col-4 p-2">
+                    <img class="w-100" src="{{ image.image.url }}" alt="">
+                    </div>
+                {% endfor %}
+              </div>
+            </div>
+            {% endfor %}
+          </div>
         </div>
-        {% endfor %}
       </div>
     </div>
-  </div>
-  <div class="row footer justify-content-center">
-    <div class="col-1 home">
-      <a href="/afisha" class="stretched-link"></a>
+    <div class="row footer justify-content-center">
+      <div class="col-2">
+        <a class="carousel-control-prev" href="#carouselEntry" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Предыдущий</span>
+        </a>
+      </div>
+      <div class="col-1 home">
+        <a href="/afisha" class="stretched-link"></a>
+      </div>
+      <div class="col-2">
+        <a class="carousel-control-next" href="#carouselEntry" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Следующий</span>
+        </a>
+      </div>
     </div>
-  </div>
 </div>
+<script type="text/javascript"> 
+    $('.carousel').carousel({{ id }});
+</script>
 {% endblock %}
