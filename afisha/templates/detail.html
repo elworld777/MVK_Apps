@@ -42,7 +42,7 @@
                 <div class="col-4">
                   <div class="row h-100">
                     <div class="col-12 duration">
-                        {{ entry.date_start }} – {{ entry.date_end }}
+                        {{ entry.date_start|date:"d.m.Y" }} – {{ entry.date_end|date:"d.m.Y" }}
                     </div>
                     <div class="col-12 price align-self-end">
                         {{ entry.price }}
