@@ -25,6 +25,7 @@ body {
 }
 
 .header-entry {
+    font-family: Montserrat;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -37,6 +38,7 @@ body {
 }
 
 .cat a {
+    font-family: Montserrat;
     font-weight: 600;
     font-size: 40px;
     line-height: 49px;
@@ -48,21 +50,32 @@ body {
 }
 
 h1 {
+    font-family: Montserrat;
     font-weight: 600;
     font-size: 75px;
     line-height: 91px;
 }
 
 h2 {
+    font-family: Montserrat;
     font-weight: 600;
     font-size: 40px;
     line-height: 49px;
 }
 
 h3 {
+    font-family: Montserrat;
     font-weight: 600;
     font-size: 30px;
     line-height: 37px;
+}
+
+h4 {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
 }
 
 .rounded-lg {
@@ -97,8 +110,51 @@ h3 {
     background-color: rgba(231, 243, 248, 0.8);
 }
 
-.home{
+.home {
     background: url("/media/home.png") no-repeat center;
     background-size: contain;
     margin: 10px;
 }
+
+.duration {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 25px;
+    line-height: 30px;
+    text-transform: uppercase;
+}
+
+.price {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 20px;
+    text-transform: uppercase;
+}
+
+.description {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 37px;
+}
+
+.carousel-control-prev-icon {
+    background: url(/media/prev.svg) center no-repeat;
+    width: 50px;
+    height: 54px;
+  }
+  
+  .carousel-control-next-icon {
+    background: url(/media/next.svg) center no-repeat;
+    width: 50px;
+    height: 54px;
+  }
+
+  .carousel-control-next, .carousel-control-prev {
+    width: 100%;
+    opacity: 1;
+  }
