@@ -30,7 +30,11 @@
         <div id="carouselEntry" class="carousel slide" data-ride="carousel" data-interval="0">
           <div class="carousel-inner">
             {% for entry in entry_list %}
-            <div class="carousel-item">
+            {% if {{ forloop.counter }} == 1 %}
+                <div class="carousel-item active">
+            {% else %}
+                <div class="carousel-item">
+            {% endif %}
               <div class="row">
                 <div class="col-8">
                   <img class="w-100" src="{{ entry.detail.url }}" alt="">
@@ -38,7 +42,7 @@
                 <div class="col-4">
                   <div class="row h-100">
                     <div class="col-12 duration">
-                      {{ entry.date_start }} – {{ entry.date_end }}
+                        {{ entry.date_start }} – {{ entry.date_end }}
                     </div>
                     <div class="col-12 price align-self-end">
                         {{ entry.price }}
@@ -46,7 +50,7 @@
                   </div>
                 </div>
                 <div class="col-12 my-5 description">
-                  {{ entry.text }}
+                    {{ entry.text }}
                 </div>
                 {% for image in entry.images.all %}
                     <div class="col-4 p-2">
