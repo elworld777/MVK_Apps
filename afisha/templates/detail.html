@@ -45,7 +45,7 @@
                         {{ entry.date_start|date:"d.m.Y" }} – {{ entry.date_end|date:"d.m.Y" }}
                     </div>
                     <div class="col-12 price align-self-end">
-                        {% if entry.price %}
+                        {% if entry.price is None %}
                             <h4>СТОИМОСТЬ ПОСЕЩЕНИЯ</h4>
                             <p>Дети младше 16 лет – бесплатно</p>
                             <h4>Одной экспозиции:</h4>
