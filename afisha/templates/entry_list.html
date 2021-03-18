@@ -24,9 +24,9 @@
     <div class="row m-4 entry-list overflow-auto">
       <div class="col">
         <div class="row">
-        {{ now "d.m.Y"}}
+        {{ datetime.datetime.now }}
         {% for entry in entry_list %}
-          {% if entry.date_end <= now "d.m.Y"%}
+          {% if entry.date_end <= datetime.datetime.now %}
             {% if entry.width >= 2 %}
                 <div class="col-12 py-2">
                     <a href="{{ url }}/{{ forloop.counter0 }}">
