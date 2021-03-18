@@ -159,3 +159,11 @@ h4 {
     width: 100%;
     opacity: 1;
   }
+
+  .description-ar {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 24px;
+  }

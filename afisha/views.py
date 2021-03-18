@@ -41,3 +41,11 @@ def entry(request, pk, id):
         'id': id
     }
     return render(request, 'detail.html', context)
+
+
+def ar(request, pk):
+    entry = Category.objects.get(url=pk).entry_set.all()
+    context = {
+        'entry_list': entry
+    }
+    return render(request, 'ar.html', context)
