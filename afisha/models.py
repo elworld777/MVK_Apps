@@ -39,7 +39,7 @@ class Entry(models.Model):
 
     @cached_property
     def is_active(self):
-        if self.date_end <= datetime.date.today() and self.active:
+        if self.date_end <= date.today() and self.active:
             return True
         return False
 
