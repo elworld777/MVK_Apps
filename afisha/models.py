@@ -1,5 +1,5 @@
 from django.db import models
-from datetime import date
+from datetime
 from django.utils import timezone as tz
 from django.utils.functional import cached_property
 
@@ -40,7 +40,7 @@ class Entry(models.Model):
 
     @cached_property
     def is_active(self):
-        if self.date_end <= "2":
+        if self.date_end <= tz.localtime(tz.now()).date():
             return True
         return False
 
