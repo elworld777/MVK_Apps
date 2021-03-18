@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import date
+from datetime import datetime
 from django.utils.functional import cached_property
 
 
