@@ -1,5 +1,4 @@
-{% extends 'wrapper.html' %}
-{% block content %}
+{% extends 'wrapper.html' %} {% block content %}
 <div class="container-fluid vh-100 overflow-auto">
   <div class="row header header-entry align-items-center px-5 py-4">
     <div class="col-2 text-center">
@@ -25,56 +24,73 @@
       </p>
     </div>
   </div>
-    <div class="row m-4 entry-list overflow-auto">
-      <div class="col">
-        <div id="carouselEntry" class="carousel slide" data-ride="carousel" data-interval="0">
-          <div class="carousel-inner">
-            {% for entry in entry_list %}
-            {% if forloop.counter0 == id %}
-                <div class="carousel-item active">
+  <div class="row m-4 entry-list overflow-auto">
+    <div class="col">
+      <div
+        id="carouselEntry"
+        class="carousel slide"
+        data-ride="carousel"
+        data-interval="0"
+      >
+        <div class="carousel-inner">
+          {% for entry in entry_list %} {% if forloop.counter0 == id %}
+          <div class="carousel-item active">
             {% else %}
-                <div class="carousel-item">
-            {% endif %}
+            <div class="carousel-item">
+              {% endif %}
               <div class="row">
                 <div class="col-8">
-                  <img class="w-100" src="{{ entry.detail.url }}" alt="">
+                  {% if entry.detail %}
+                  <img class="w-100" src="{{ entry.detail.url }}" alt="" />
+                  {% else %}
+                  <img class="w-100" src="{{ entry.preview.url }}" alt="" />
+                  {% endif %}
                 </div>
                 <div class="col-4">
                   <div class="row h-100">
+                    {% if entry.date_start and entry.date_end %}
                     <div class="col-12 duration">
-                        {{ entry.date_start|date:"d.m.Y" }} – {{ entry.date_end|date:"d.m.Y" }}
+                      {{ entry.date_start|date:"d.m.Y" }} – {{ entry.date_end|date:"d.m.Y" }}
                     </div>
+                    {% endif %} {% if entry.duration %}
+                    <div class="col-12 price">
+                      {{ entry.duration|linebreaksbr }}
+                    </div>
+                    {% endif %}
                     <div class="col-12 price align-self-end">
-                        {% if entry.price %}
-                            {{ entry.price|linebreaksbr }}
-                        {% else %}
-                            <h4>СТОИМОСТЬ ПОСЕЩЕНИЯ</h4>
-                            <p>Дети младше 16 лет – бесплатно</p>
-                            <h4>Одной экспозиции:</h4>
-                            <p>Посетитель без льгот – 80 руб.<br>
-                                Пенсионер – 40 руб.<br>
-                                Студент – 40 руб.<br>
-                                Школьник старше 16 лет – 40 руб.</p>
-                             <h4>Всех экспозиций:</h4>
-                            <p>Посетитель без льгот – 150 руб.<br>
-                                Пенсионер – 75 руб.<br>
-                                Студент – 75 руб.<br>
-                                Школьник старше 16 лет – 75 руб.</p>
-                        {% endif %}
+                      {% if entry.price %} {{ entry.price|linebreaksbr }} 
+                      {%else %}
+                      <h4>СТОИМОСТЬ ПОСЕЩЕНИЯ</h4>
+                      <p>Дети младше 16 лет – бесплатно</p>
+                      <h4>Одной экспозиции:</h4>
+                      <p>
+                        Посетитель без льгот – 80 руб.<br />
+                        Пенсионер – 40 руб.<br />
+                        Студент – 40 руб.<br />
+                        Школьник старше 16 лет – 40 руб.
+                      </p>
+                      <h4>Всех экспозиций:</h4>
+                      <p>
+                        Посетитель без льгот – 150 руб.<br />
+                        Пенсионер – 75 руб.<br />
+                        Студент – 75 руб.<br />
+                        Школьник старше 16 лет – 75 руб.
+                      </p>
+                      {% endif %}
                     </div>
                   </div>
                 </div>
                 <div class="col-12 my-5 description">
-                    {{ entry.text|linebreaks }}
+                  {{ entry.text|linebreaks }}
                 </div>
                 <div class="col-12">
-                    <div class="row no-gutters">
+                  <div class="row no-gutters">
                     {% for image in entry.images.all %}
-                        <div class="col-4 p-1">
-                        <img class="w-100" src="{{ image.image.url }}" alt="">
-                        </div>
-                    {% endfor %}
+                    <div class="col-4 p-1">
+                      <img class="w-100" src="{{ image.image.url }}" alt="" />
                     </div>
+                    {% endfor %}
+                  </div>
                 </div>
               </div>
             </div>
@@ -85,7 +101,12 @@
     </div>
     <div class="row footer justify-content-center">
       <div class="col-2">
-        <a class="carousel-control-prev" href="#carouselEntry" role="button" data-slide="prev">
+        <a
+          class="carousel-control-prev"
+          href="#carouselEntry"
+          role="button"
+          data-slide="prev"
+        >
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="sr-only">Предыдущий</span>
         </a>
@@ -94,11 +115,17 @@
         <a href="/afisha" class="stretched-link"></a>
       </div>
       <div class="col-2">
-        <a class="carousel-control-next" href="#carouselEntry" role="button" data-slide="next">
+        <a
+          class="carousel-control-next"
+          href="#carouselEntry"
+          role="button"
+          data-slide="next"
+        >
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Следующий</span>
         </a>
       </div>
     </div>
+  </div>
+  {% endblock %}
 </div>
-{% endblock %}
