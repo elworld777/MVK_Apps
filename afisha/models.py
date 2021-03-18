@@ -40,7 +40,7 @@ class Entry(models.Model):
 
     @cached_property
     def is_active(self):
-        if self.date_end <= tz.localtime(tz.now()).date():
+        if self.date_end <= "2":
             return True
         return False
 
