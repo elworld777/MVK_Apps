@@ -39,8 +39,9 @@ class Entry(models.Model):
 
     @cached_property
     def is_active(self):
-        if self.date_end <= tz.localtime(tz.now()).date():
-            return True
+        if self.date_end is not None:
+            if self.date_end <= tz.localtime(tz.now()).date() and self.active:
+                return True
         return False
 
     class Meta:
