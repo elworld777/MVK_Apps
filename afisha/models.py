@@ -1,5 +1,5 @@
 from django.db import models
-from django.utils import timezone as tz
+from datetime import date
 from django.utils.functional import cached_property
 
 
@@ -18,7 +18,6 @@ class Category(models.Model):
     class Meta:
         verbose_name = "Категория"
         verbose_name_plural = "Категории"
-
 
 class Entry(models.Model):
     title = models.CharField("Название", max_length=150)
@@ -40,7 +39,7 @@ class Entry(models.Model):
     @cached_property
     def is_active(self):
         if self.date_end is not None:
-            if self.date_end <= tz.localtime(tz.now()).date() and self.active:
+            if self.date_end >= date.today() and self.active:
                 return True
         return False
 
