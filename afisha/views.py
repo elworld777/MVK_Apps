@@ -48,4 +48,4 @@ def ar(request, pk):
     context = {
         'entry_list': entry
     }
-    return render(request, 'ar.html', context)
+    return render(request, 'ar_list.html', context)
