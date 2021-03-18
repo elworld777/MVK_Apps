@@ -1,5 +1,4 @@
 from django.db import models
-from datetime
 from django.utils import timezone as tz
 from django.utils.functional import cached_property
 
