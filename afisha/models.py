@@ -1,9 +1,11 @@
 from django.db import models
 from datetime import date
+from django.utils.functional import cached_property
 
 
 class Category(models.Model):
     name = models.CharField("Категория", max_length=150)
+    active = models.BooleanField("Активность", default=True)
     icon = models.ImageField(
         "Иконка", null=True, blank=True, upload_to="icon/")
     url = models.SlugField("Ссылка", max_length=160, unique=True)
@@ -20,6 +22,7 @@ class Category(models.Model):
 
 class Entry(models.Model):
     title = models.CharField("Название", max_length=150)
+    active = models.BooleanField("Активность", default=True)
     category = models.ForeignKey(
         Category, on_delete=models.SET_NULL, null=True, blank=True)
     preview = models.ImageField("Превью", upload_to="preview/")
@@ -33,6 +36,12 @@ class Entry(models.Model):
 
     def __str__(self):
         return self.title
+
+    @cached_property
+    def is_active(self):
+        if self.date_end <= date.today and self.active:
+            return True
+        return False
 
     class Meta:
         verbose_name = "Запись"
