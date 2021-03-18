@@ -44,7 +44,7 @@ def entry(request, pk, id):
 
 
 def ar(request, pk):
-    entry = Category.objects.get(url=pk).entry_set.all()
+    entry = Category.objects.get(url="ar").entry_set.all()
     context = {
         'entry_list': entry
     }
