@@ -26,7 +26,7 @@
         <div class="row">
         {{ now }}
         {% for entry in entry_list %}
-          {% if entry.date_end >= now %}
+          {% if entry.date_end <= now %}
             {% if entry.width >= 2 %}
                 <div class="col-12 py-2">
                     <a href="{{ url }}/{{ forloop.counter0 }}">
