@@ -33,9 +33,13 @@
         </div>
         <div class="col-4">
           <div class="row h-100">
+            {% if entry.date_start and entry.date_end %}
             <div class="col-12 duration">
               {{ entry.date_start|date:"d.m.Y" }} – {{ entry.date_end|date:"d.m.Y" }}
             </div>
+            {% endif %} {% if entry.duration %}
+            <div class="col-12 price">{{ entry.duration|linebreaksbr }}</div>
+            {% endif %}
             <div class="col-12 price align-self-end">
               {% if entry.price %} {{ entry.price|linebreaksbr }} {% else %}
               <h4>СТОИМОСТЬ ПОСЕЩЕНИЯ</h4>
@@ -58,11 +62,13 @@
             </div>
           </div>
         </div>
-        <div class="col-12 my-5 description-ar">{{ entry.text|linebreaks }}</div>
+        <div class="col-12 my-5 description-ar">
+          {{ entry.text|linebreaks }}
+        </div>
         <div class="col-12">
           <div class="row no-gutters">
             {% for image in entry.images.all %}
-            <div class="col-4 p-1">
+            <div class="col-3 p-1">
               <img class="w-100" src="{{ image.image.url }}" alt="" />
             </div>
             {% endfor %}

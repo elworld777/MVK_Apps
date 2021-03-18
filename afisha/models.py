@@ -23,7 +23,7 @@ class Entry(models.Model):
     category = models.ForeignKey(
         Category, on_delete=models.SET_NULL, null=True, blank=True)
     preview = models.ImageField("Превью", upload_to="preview/")
-    detail = models.ImageField("Детальная картинка", upload_to="detail/")
+    detail = models.ImageField("Детальная картинка", upload_to="detail/", null=True, blank=True)
     width = models.PositiveSmallIntegerField("Ширина", default=1)
     date_start = models.DateField("Дата начала", null=True, blank=True)
     date_end = models.DateField("Дата окончания", null=True, blank=True)
