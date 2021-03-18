@@ -49,3 +49,6 @@ def ar(request):
         'entry_list': entry
     }
     return render(request, 'ar_list.html', context)
+
+def info(request):
+    return render(request, 'info.html')
