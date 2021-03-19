@@ -7,8 +7,7 @@ html {
 
 body {
     color: white;
-    background: url("/media/bg.png") no-repeat;
-    background-size: cover;
+    background: linear-gradient(180deg, #07516A 0%, #2F4F86 100%);
 }
 
 .header {
