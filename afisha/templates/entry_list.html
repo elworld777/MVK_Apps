@@ -1,7 +1,7 @@
 {% extends 'wrapper.html' %} 
 
 {% block content %} 
-  <div class="container-fluid vh-100 overflow-auto">
+  <div class="container-fluid vh-100 overflow-auto {% if category_list.count > 0 %}sub{% endif %}">
     <div class="row header header-entry align-items-center px-5 py-4">
       <div class="col-2 text-center"><img class="img-fluid" src="/media/logo.png" alt=""></div>
       <div class="col-5"><strong>ЯМАЛО-НЕНЕЦКИЙ ОКРУЖНОЙ МУЗЕЙНО&#8209;ВЫСТАВОЧНЫЙ КОМПЛЕКС

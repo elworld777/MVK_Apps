@@ -177,3 +177,7 @@ h4 {
 .rounded-lg {
     border-radius: 15px!important;
 }
+
+.sub{
+    background: url(/media/bg_sub.png) center no-repeat;
+}
