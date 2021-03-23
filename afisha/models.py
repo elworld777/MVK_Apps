@@ -8,7 +8,7 @@ class Category(models.Model):
     active = models.BooleanField("Активность", default=True)
     icon = models.ImageField(
         "Иконка", null=True, blank=True, upload_to="icon/")
-    url = models.URLField("Ссылка", max_length=160, unique=True)
+    url = models.CharField("Ссылка", max_length=160, unique=True)
     parent_category = models.ForeignKey(
         'self', on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Родительская категория')
 
