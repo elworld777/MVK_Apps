@@ -145,27 +145,27 @@ h4 {
     background: url(/media/prev.svg) center no-repeat;
     width: 50px;
     height: 54px;
-  }
-  
-  .carousel-control-next-icon {
+}
+
+.carousel-control-next-icon {
     background: url(/media/next.svg) center no-repeat;
     width: 50px;
     height: 54px;
-  }
+}
 
-  .carousel-control-next, .carousel-control-prev {
+.carousel-control-next, .carousel-control-prev {
     width: 100%;
     opacity: 1;
-  }
+}
 
-  .description-ar {
+.description-ar {
     font-family: Montserrat;
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
     line-height: 24px;
-  }
+}
 
-  .info{
-      height: 1820px;
-  }
+.info {
+    height: 1820px;
+}
