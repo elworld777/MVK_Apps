@@ -48,6 +48,10 @@ body {
     border: 2px solid #dee2e6!important;
 }
 
+.border-left-0 {
+    border-left: 0!important;
+}
+
 h1 {
     font-family: Montserrat;
     font-weight: 600;
@@ -168,4 +172,8 @@ h4 {
 
 .info {
     height: 1820px;
+}
+
+.rounded-lg {
+    border-radius: 15px!important;
 }
