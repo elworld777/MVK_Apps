@@ -152,6 +152,10 @@ h4 {
     display: inline-block;
 }
 
+.back{
+    left: 0;
+}
+
 .carousel-control-next-icon {
     background: url(/media/next.svg) center no-repeat;
     width: 50px;
