@@ -100,6 +100,7 @@
       </div>
     </div>
     <div class="row footer justify-content-center">
+    {% if entry_list.count > 1 %}
       <div class="col-2">
         <a
           class="carousel-control-prev"
@@ -111,9 +112,11 @@
           <span class="sr-only">Предыдущий</span>
         </a>
       </div>
+    {% endif %}
       <div class="col-1 home">
         <a href="/afisha" class="stretched-link"></a>
       </div>
+    {% if entry_list.count > 1 %}
       <div class="col-2">
         <a
           class="carousel-control-next"
@@ -125,6 +128,7 @@
           <span class="sr-only">Следующий</span>
         </a>
       </div>
+    {% endif %}
     </div>
   </div>
   {% endblock %}
