@@ -54,11 +54,11 @@
                     </div>
                     {% endif %} {% if entry.duration %}
                     <div class="col-12 price">
-                      {{ entry.duration|linebreaksbr }}
+                      {{ entry.duration|linebreaksbr|safe }}
                     </div>
                     {% endif %}
                     <div class="col-12 price align-self-end">
-                      {% if entry.price %} {{ entry.price|linebreaksbr }} 
+                      {% if entry.price %} {{ entry.price|linebreaksbr|safe }} 
                       {%else %}
                       <h4>СТОИМОСТЬ ПОСЕЩЕНИЯ</h4>
                       <p>Дети младше 16 лет – бесплатно</p>
@@ -81,7 +81,7 @@
                   </div>
                 </div>
                 <div class="col-12 my-5 description">
-                  {{ entry.text|linebreaks }}
+                  {{ entry.text|linebreaks|safe }}
                 </div>
                 <div class="col-12">
                   <div class="row no-gutters">
