@@ -15,7 +15,7 @@ class ListMaps(ListView):
 
 def index(request):
     category = Category.objects.filter(parent_category=None)
-    setting = Setting.objects.all()[0]
+    setting = Setting.objects.all().first()
     context = {
         'category_list': category,
         'setting': setting
@@ -24,8 +24,8 @@ def index(request):
 
 
 def exhibitions(request, pk):
-    category = Category.objects.get(url=pk).category_set.all()
-    entry = Category.objects.get(url=pk).entry_set.all()
+    category = Category.objects.filter(url=pk).first().category_set.all()
+    entry = Category.objects.filter(url=pk).first().entry_set.all()
     context = {
         'category_list': category,
         'entry_list': entry,
@@ -35,7 +35,7 @@ def exhibitions(request, pk):
 
 
 def entry(request, pk, id):
-    entry = Category.objects.get(url=pk).entry_set.all()
+    entry = Category.objects.filter(url=pk).first().entry_set.all()
     context = {
         'entry_list': entry,
         'id': id
@@ -44,7 +44,7 @@ def entry(request, pk, id):
 
 
 def ar(request):
-    entry = Category.objects.get(url="ar").entry_set.all()
+    entry = Category.objects.filter(url="ar").first().entry_set.all()
     context = {
         'entry_list': entry
     }
