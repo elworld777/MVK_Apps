@@ -84,10 +84,10 @@
                   {{ entry.text|safe|linebreaks }}
                 </div>
                 <div class="col-12">
-                  <div class="row no-gutters">
+                  <div class="card-columns">
                     {% for image in entry.images.all %}
-                    <div class="col-4 p-1">
-                      <img class="w-100" src="{{ image.image.url }}" alt="" />
+                    <div class="card border-0">
+                      <img class="card-img" src="{{ image.image.url }}" alt="" />
                     </div>
                     {% endfor %}
                   </div>
