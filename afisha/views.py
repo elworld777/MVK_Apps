@@ -24,8 +24,12 @@ def index(request):
 
 
 def exhibitions(request, pk):
-    category = Category.objects.filter(url=pk).first().category_set.all()
-    entry = Category.objects.filter(url=pk).first().entry_set.all()
+    try:
+        category = Category.objects.filter(url=pk).first().category_set.all()
+        entry = Category.objects.filter(url=pk).first().entry_set.all()
+    except:
+        category = None
+        entry = None
     context = {
         'category_list': category,
         'entry_list': entry,
@@ -35,7 +39,10 @@ def exhibitions(request, pk):
 
 
 def entry(request, pk, id):
-    entry = Category.objects.filter(url=pk).first().entry_set.all()
+    try:
+        entry = Category.objects.filter(url=pk).first().entry_set.all()
+    except:
+        entry = None
     context = {
         'entry_list': entry,
         'id': id
@@ -44,7 +51,10 @@ def entry(request, pk, id):
 
 
 def ar(request):
-    entry = Category.objects.filter(url="ar").first().entry_set.all()
+    try:
+        entry = Category.objects.filter(url="ar").first().entry_set.all()
+    except:
+        entry = None
     context = {
         'entry_list': entry
     }
