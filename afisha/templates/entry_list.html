@@ -22,7 +22,7 @@
       </div>
     </div>
     <div class="row m-4 entry-list overflow-auto">
-      <div class="col m-auto">
+      <div class="col-12 m-auto">
     <div class="row cat justify-content-center">
     {% for category in category_list %}
       {% if category.active %}
@@ -57,6 +57,11 @@
         {% endfor %}
         </div>
       </div>
+      {% if url == "dc" %}
+        <div class="col-12 text-center record">
+          Предварительная запись: 8 (34922) 4-51-58
+        </div>
+      {% endif %}
     </div>
     <div class="row footer justify-content-center">
       <div class="col-1 home">

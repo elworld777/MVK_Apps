@@ -152,7 +152,7 @@ h4 {
     display: inline-block;
 }
 
-.back{
+.back {
     left: 0;
 }
 
@@ -193,6 +193,15 @@ h4 {
     border-radius: 15px!important;
 }
 
-.sub{
+.sub {
     background: url(/media/bg_sub.png) center no-repeat;
+}
+
+.record {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 34px;
+    text-transform: uppercase;
 }
