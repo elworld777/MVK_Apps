@@ -31,7 +31,7 @@
           <div class="col-3">
             <img class="" src="{{category.icon.url}}" alt="">
           </div>
-          <div class="col-9 text-center"><a href="{{category.url}}{% if category.num %}/{{category.num}}{% endif %}">{{category.name}}</a></div>
+          <div class="col-9 text-center"><a href="{{category.url}}{% if category.num is not None %}/{{category.num}}{% endif %}">{{category.name}}</a></div>
         </div>
       </div>
       {% endif %}
