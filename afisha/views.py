@@ -45,7 +45,8 @@ def entry(request, pk, id):
         entry = None
     context = {
         'entry_list': entry,
-        'id': id
+        'id': id,
+        'url': pk
     }
     return render(request, 'detail.html', context)
 

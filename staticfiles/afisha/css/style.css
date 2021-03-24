@@ -145,7 +145,7 @@ h4 {
     line-height: 37px;
 }
 
-.carousel-control-prev-icon {
+.back-icon {
     background: url(/media/prev.svg) center no-repeat;
     width: 50px;
     height: 54px;
@@ -157,7 +157,7 @@ h4 {
     height: 54px;
 }
 
-.carousel-control-next, .carousel-control-prev {
+.carousel-control-next, .back {
     width: 100%;
     opacity: 1;
 }
