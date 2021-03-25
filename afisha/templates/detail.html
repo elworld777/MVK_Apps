@@ -35,97 +35,96 @@
         <div class="carousel-inner">
           {% for entry in entry_list %} {% if forloop.counter0 == id %}
           <div class="carousel-item active">
-            {% else %}
-            <div class="carousel-item">
-              {% endif %}
-              <div class="row">
-                <div class="col-8">
-                  {% if entry.detail %}
-                  <img class="w-100" src="{{ entry.detail.url }}" alt="" />
-                  {% else %}
-                  <img class="w-100" src="{{ entry.preview.url }}" alt="" />
+          {% else %}
+          <div class="carousel-item">
+          {% endif %}
+            <div class="row">
+              <div class="col-8">
+                {% if entry.detail %}
+                <img class="w-100" src="{{ entry.detail.url }}" alt="" />
+                {% else %}
+                <img class="w-100" src="{{ entry.preview.url }}" alt="" />
+                {% endif %}
+              </div>
+              <div class="col-4">
+                <div class="row h-100">
+                  {% if entry.date_start and entry.date_end %}
+                  <div class="col-12 duration">
+                    {{ entry.date_start|date:"d.m.Y" }} – {{ entry.date_end|date:"d.m.Y" }}
+                  </div>
+                  {% endif %} {% if entry.duration %}
+                  <div class="col-12 price">
+                    {{ entry.duration|safe|linebreaksbr }}
+                  </div>
                   {% endif %}
-                </div>
-                <div class="col-4">
-                  <div class="row h-100">
-                    {% if entry.date_start and entry.date_end %}
-                    <div class="col-12 duration">
-                      {{ entry.date_start|date:"d.m.Y" }} – {{ entry.date_end|date:"d.m.Y" }}
-                    </div>
-                    {% endif %} {% if entry.duration %}
-                    <div class="col-12 price">
-                      {{ entry.duration|safe|linebreaksbr }}
-                    </div>
-                    {% endif %}
-                    <div class="col-12 price align-self-end">
-                      {% if entry.price %} {{ entry.price|safe|linebreaksbr }} 
-                      {%else %}
-                      <h4>СТОИМОСТЬ ПОСЕЩЕНИЯ</h4>
-                      <p>Дети младше 16 лет – бесплатно</p>
-                      <h4><u>Одной экспозиции:</u></h4>
-                      <p>
+                  <div class="col-12 price align-self-end">
+                    {% if entry.price %} {{ entry.price|safe|linebreaksbr }} 
+                    {%else %}
+                    <h4>СТОИМОСТЬ ПОСЕЩЕНИЯ</h4>
+                    <p>Дети младше 16 лет – бесплатно</p>
+                    <h4><u>Одной экспозиции:</u></h4>
+                    <p>
                         Посетитель без льгот – 80 руб.<br />
                         Пенсионер – 40 руб.<br />
                         Студент – 40 руб.<br />
                         Школьник старше 16 лет – 40 руб.
-                      </p>
-                      <h4><u>Всех экспозиций:</u></h4>
-                      <p>
+                    </p>
+                    <h4><u>Всех экспозиций:</u></h4>
+                    <p>
                         Посетитель без льгот – 150 руб.<br />
                         Пенсионер – 75 руб.<br />
                         Студент – 75 руб.<br />
                         Школьник старше 16 лет – 75 руб.
-                      </p>
-                      {% endif %}
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 my-5 description">
-                  {{ entry.text|safe|linebreaks }}
-                </div>
-                <div class="col-12">
-                  <div class="card-columns">
-                    {% for image in entry.images.all %}
-                    <div class="card border-0">
-                      <img class="card-img" src="{{ image.image.url }}" alt="" />
-                    </div>
-                    {% endfor %}
+                    </p>
+                    {% endif %}
                   </div>
                 </div>
               </div>
+              <div class="col-12 my-5 description">
+                {{ entry.text|safe|linebreaks }}
+              </div>
+              <div class="col-12">
+                <div class="card-columns">
+                  {% for image in entry.images.all %}
+                  <div class="card border-0">
+                    <img class="card-img" src="{{ image.image.url }}" alt="" />
+                  </div>
+                  {% endfor %}
+                </div>
+              </div>
             </div>
-            {% endfor %}
           </div>
+          {% endfor %}
         </div>
       </div>
     </div>
-    <div class="row footer justify-content-center">
-      <div class="col-2">
-        <a
-          class="back"
-          onclick="javascript:history.back(); return false;"
-        >
-          <span class="back-icon" aria-hidden="true"></span>
-          <span class="sr-only">Назад</span>
-        </a>
-      </div>
-      <div class="col-1 home">
-        <a href="/afisha" class="stretched-link"></a>
-      </div>
-      <div class="col-2">
+  </div>
+  <div class="row footer justify-content-center">
+    <div class="col-2">
+      <a
+        class="back"
+        onclick="javascript:history.back(); return false;"
+      >
+        <span class="back-icon" aria-hidden="true"></span>
+        <span class="sr-only">Назад</span>
+      </a>
+    </div>
+    <div class="col-1 home">
+      <a href="/afisha" class="stretched-link"></a>
+    </div>
+    <div class="col-2">
     {% if entry_list.count > 1 %}
-        <a
-          class="carousel-control-next"
-          href="#carouselEntry"
-          role="button"
-          data-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Следующий</span>
-        </a>
+      <a
+        class="carousel-control-next"
+        href="#carouselEntry"
+        role="button"
+        data-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Следующий</span>
+      </a>
     {% endif %}
-      </div>
     </div>
   </div>
-  {% endblock %}
 </div>
+{% endblock %}
