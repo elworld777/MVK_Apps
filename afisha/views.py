@@ -66,7 +66,7 @@ def info(request):
 
 def muzart(request):
     try:
-        category = Category.objects.filter(url="muzart").first().all()
+        category = Category.objects.filter(url="muzart").first().objects.all()
     except:
         category = None
     context = {
