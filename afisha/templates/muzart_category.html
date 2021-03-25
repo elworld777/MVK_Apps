@@ -1,21 +1,26 @@
 {% extends 'nav.html' %} {% block main %}
 <div class="row m-4 entry-list overflow-auto cat justify-content-center">
-  {% for category in category_list %}
-    {% if category.active %}
+  {% for entry in entry_list %}
+  {% if entry.active %}
+  <div class="col-11 m-4 rounded-lg text-center bg-muzart">
     <a class="stretched-link" href="{{url}}">
-        <div class="col-11 m-4 rounded-lg text-center bg-muzart">
-            <div class="row h-100">
-                <div class="col-9 m-auto">
-                {% if category.title%}
-                    {{category.title}}
-                {% else %}
-                    {{category.name}}
-                {% endif %}
-                </div>
-            </div>
-        </div>
+      <div class="row h-100">
+        <div class="col-9 m-auto">{{entry.title}}</div>
+      </div>
     </a>
-    {% endif %}
+  </div>
+  {% endif %} 
+  {% endfor %} 
+  {% for category in category_list %} 
+  {% if category.active %}
+  <div class="col-11 m-4 rounded-lg text-center bg-muzart">
+    <a class="stretched-link" href="{{url}}">
+      <div class="row h-100">
+        <div class="col-9 m-auto">{{category.name}}</div>
+      </div>
+    </a>
+  </div>
+  {% endif %}
   {% endfor %}
 </div>
 {% endblock %}

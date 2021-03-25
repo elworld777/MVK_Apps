@@ -66,11 +66,14 @@ def info(request):
 
 def muzart(request):
     try:
-        category = Category.objects.filter(url="muzart").first().objects.all()
+        category = Category.objects.filter(url="muzart").first().category_set.all().order_by('priority')
+        entry = Category.objects.filter(url="muzart").first().entry_set.all()
     except:
         category = None
+        entry = None
     context = {
         'category_list': category,
+        'entry_list': entry,
         'url': "muzart"
     }
     return render(request, 'muzart_category.html', context)
