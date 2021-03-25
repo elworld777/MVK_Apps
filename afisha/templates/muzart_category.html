@@ -3,8 +3,12 @@
 <div class="row m-4 entry-list overflow-auto cat justify-content-center">
         {% for category in category_list %}
             {% if category.active %}
-            <div class="col-11 mb-4 rounded-lg text-center bg-muzart m-auto">
-                <a href="{{category.url}}{% if category.num is not None %}/{{category.num}}{% endif %}">{{category.name}}</a>
+            <div class="col-11 mb-4 rounded-lg text-center bg-muzart">
+                <div class="row ">
+                    <div class="col-10 m-auto">
+                        <a href="{{category.url}}{% if category.num is not None %}/{{category.num}}{% endif %}">{{category.name}}</a>
+                    </div>
+                </div>
             </div>
             {% endif %}
         {% endfor %}
