@@ -64,7 +64,7 @@ def ar(request):
 def info(request):
     return render(request, 'info.html')
 
-def muzart(request):
+def muzart(request, pk):
     try:
         category = Category.objects.filter(url=pk).first().category_set.all().order_by('priority')
     except:
