@@ -4,8 +4,8 @@
         {% for category in category_list %}
             {% if category.active %}
             <div class="col-11 mb-4 rounded-lg text-center bg-muzart">
-                <div class="row ">
-                    <div class="col-10 m-auto">
+                <div class="row h-100">
+                    <div class="col-9 m-auto">
                         <a href="{{category.url}}{% if category.num is not None %}/{{category.num}}{% endif %}">{{category.name}}</a>
                     </div>
                 </div>
