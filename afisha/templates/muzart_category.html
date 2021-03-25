@@ -1,16 +1,15 @@
-{% extends 'nav.html' %}
-{% block main %}
+{% extends 'nav.html' %} {% block main %}
 <div class="row m-4 entry-list overflow-auto cat justify-content-center">
-        {% for category in category_list %}
-            {% if category.active %}
-            <div class="col-11 m-4 rounded-lg text-center bg-muzart">
-                <div class="row h-100">
-                    <div class="col-9 m-auto">
-                        <a class="stretched-link" href="{{category.url}}{% if category.num is not None %}/{{category.num}}{% endif %}">{{category.name}}</a>
-                    </div>
-                </div>
+  {% for category in category_list %}
+    {% if category.active %}
+    <a class="stretched-link" href="{{url}}{% if category.num is not None %}/{{category.num}}{% endif %}">
+        <div class="col-11 m-4 rounded-lg text-center bg-muzart">
+            <div class="row h-100">
+                <div class="col-9 m-auto">{{category.name}}</div>
             </div>
-            {% endif %}
-        {% endfor %}
+        </div>
+    </a>
+    {% endif %}
+  {% endfor %}
 </div>
 {% endblock %}

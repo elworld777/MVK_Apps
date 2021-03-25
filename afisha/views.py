@@ -74,3 +74,15 @@ def muzart(request):
         'url': "muzart"
     }
     return render(request, 'muzart_category.html', context)
+
+def muzart_list(request, id):
+    try:
+        category = Category.objects.filter(url="muzart").first().category_set.all().order_by('priority')
+    except:
+        category = None
+    context = {
+        'entry_list': category,
+        'url': "muzart",
+        'id': id
+    }
+    return render(request, 'muzart_list.html', context)
