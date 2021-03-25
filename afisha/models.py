@@ -9,9 +9,12 @@ class Category(models.Model):
     icon = models.ImageField(
         "Иконка", null=True, blank=True, upload_to="icon/")
     url = models.SlugField("Ссылка", max_length=160, unique=True)
-    num = models.PositiveSmallIntegerField("Номер выводимой записи", null=True, blank=True)
+    num = models.PositiveSmallIntegerField(
+        "Номер выводимой записи", null=True, blank=True)
     parent_category = models.ForeignKey(
         'self', on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Родительская категория')
+    priority = models.PositiveSmallIntegerField(
+        "Приоритет", default=10, null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -20,13 +23,15 @@ class Category(models.Model):
         verbose_name = "Категория"
         verbose_name_plural = "Категории"
 
+
 class Entry(models.Model):
     title = models.CharField("Название", max_length=150)
     active = models.BooleanField("Активность", default=True)
     category = models.ForeignKey(
         Category, on_delete=models.SET_NULL, null=True, blank=True)
     preview = models.ImageField("Превью", upload_to="preview/")
-    detail = models.ImageField("Детальная картинка", upload_to="detail/", null=True, blank=True)
+    detail = models.ImageField(
+        "Детальная картинка", upload_to="detail/", null=True, blank=True)
     width = models.PositiveSmallIntegerField("Ширина", default=1)
     date_start = models.DateField("Дата начала", null=True, blank=True)
     date_end = models.DateField("Дата окончания", null=True, blank=True)
@@ -71,6 +76,7 @@ class Exhibit(models.Model):
     class Meta:
         verbose_name = "Экспонат"
         verbose_name_plural = "Экспонаты"
+
 
 class Setting(models.Model):
     exhibit = models.ForeignKey(
