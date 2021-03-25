@@ -15,7 +15,7 @@
           <div class="carousel-item">
           {% endif %}
             <div class="row">
-                {% if category.url=="art" %}
+                {% if id==0 %}
                     {% for entry in category.entry_set.all() %}
                         <div class="col-12 text-uppercase">
                             <h2>{{ entry.name }}</h2>
