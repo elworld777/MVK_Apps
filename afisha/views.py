@@ -14,7 +14,7 @@ class ListMaps(ListView):
 
 
 def index(request):
-    category = Category.objects.filter(parent_category=None)
+    category = Category.objects.filter(parent_category=None).order_by('priority')
     setting = Setting.objects.all().first()
     context = {
         'category_list': category,
@@ -25,7 +25,7 @@ def index(request):
 
 def exhibitions(request, pk):
     try:
-        category = Category.objects.filter(url=pk).first().category_set.all()
+        category = Category.objects.filter(url=pk).first().category_set.all().order_by('priority')
         entry = Category.objects.filter(url=pk).first().entry_set.all()
     except:
         category = None
