@@ -214,4 +214,8 @@ h4 {
     font-size: 40px;
     line-height: 49px;
     text-transform: uppercase;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    padding-left: 7rem;
+    padding-right: 7rem;
 }
