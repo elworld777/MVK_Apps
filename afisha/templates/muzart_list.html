@@ -18,7 +18,7 @@
                 {% if id == 0 %}
                     {% for entry in category.entry_set.all %}
                         <div class="col-12 text-uppercase">
-                            <h2>{{ entry.name }}</h2>
+                            <h2>{{ entry.title }}</h2>
                         </div>
                         <div class="col-7">
                         {% if entry.detail %}
@@ -39,7 +39,7 @@
                                     {{ entry.duration|safe|linebreaksbr }}
                                 </div>
                             {% endif %}
-                            {% if entry.price %} 
+                            {% if entry.price %}
                                 <div class="col-12 price align-self-end">
                                     {{ entry.price|safe|linebreaksbr }}
                                 </div>
