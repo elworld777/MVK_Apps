@@ -73,14 +73,14 @@
                         {{ category.text|safe|linebreaks }}
                     </div>
                     {% for entry in category.entry_set.all %}
-                    <div class="col">
+                    <div class="col my-3">
                         {% if entry.detail %}
                         <img class="w-100" src="{{ entry.detail.url }}" alt="" />
                         {% else %}
                         <img class="w-100" src="{{ entry.preview.url }}" alt="" />
                         {% endif %}
                     </div>
-                    <div class="col-8">
+                    <div class="col-8 mt-4">
                         <div class="row h-100">
                             <div class="col-12 price align-self-end description-ar">
                                 {{ entry.price|safe|linebreaksbr }}
