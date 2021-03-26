@@ -1,70 +1,122 @@
-{% extends 'nav.html' %} {% block main %}
-  <div class="row m-4 entry-list overflow-auto">
-    <div class="col">
-      <div
-        id="carouselEntry"
-        class="carousel slide"
-        data-ride="carousel"
-        data-interval="0"
-      >
-        <div class="carousel-inner">
-          {% for category in entry_list %}
-          {% if forloop.counter0 == id %}
-          <div class="carousel-item active">
+{% extends 'nav.html' %}
+{% block main %}
+<div class="row m-4 entry-list overflow-auto">
+  <div class="col">
+    <div
+      id="carouselEntry"
+      class="carousel slide"
+      data-ride="carousel"
+      data-interval="0"
+    >
+      <div class="carousel-inner">
+        {% for entry in entry_list %}
+        {% if forloop.counter0 == id %}
+        <div class="carousel-item active">
           {% else %}
           <div class="carousel-item">
-          {% endif %}
+            {% endif %}
             <div class="row">
-                {% if id == 0 %}
-                    {% for entry in category.entry_set.all %}
-                        <div class="col-12 text-uppercase">
-                            <h2>{{ entry.title }}</h2>
-                        </div>
-                        <div class="col-7">
-                        {% if entry.detail %}
-                            <img class="w-100" src="{{ entry.detail.url }}" alt="" />
-                        {% else %}
-                            <img class="w-100" src="{{ entry.preview.url }}" alt="" />
-                        {% endif %}
-                        </div>
-                        <div class="col-4">
-                            <div class="row h-100">
-                            {% if entry.date_start and entry.date_end %}
-                                <div class="col-12 duration">
-                                    {{ entry.date_start|date:"d.m.Y" }} – {{ entry.date_end|date:"d.m.Y" }}
-                                </div>
-                            {% endif %}
-                            {% if entry.duration %}
-                                <div class="col-12 price">
-                                    {{ entry.duration|safe|linebreaksbr }}
-                                </div>
-                            {% endif %}
-                            {% if entry.price %}
-                                <div class="col-12 price align-self-end">
-                                    {{ entry.price|safe|linebreaksbr }}
-                                </div>
-                            {% endif %}
-                            </div>
-                        </div>
-                        <div class="col-12 my-2 description-ar">
-                            {{ entry.text|safe|linebreaks }}
-                        </div>
-                        <div class="col-12">
-                            <div class="row no-gutters">
-                            {% for image in entry.images.all %}
-                                <div class="col-3 p-2">
-                                    <img class="w-100" src="{{ image.image.url }}" alt="" />
-                                </div>
-                            {% endfor %}
-                            </div>
-                        </div>
-                    {% endfor %}
+              <div class="col-12 text-uppercase">
+                <h2>{{ entry.title }}</h2>
+              </div>
+              <div class="col-7">
+                {% if entry.detail %}
+                <img class="w-100" src="{{ entry.detail.url }}" alt="" />
+                {% else %}
+                <img class="w-100" src="{{ entry.preview.url }}" alt="" />
                 {% endif %}
+              </div>
+              <div class="col-4">
+                <div class="row h-100">
+                  {% if entry.date_start and entry.date_end %}
+                  <div class="col-12 duration">
+                    {{ entry.date_start|date:"d.m.Y" }} – {{ entry.date_end|date:"d.m.Y" }}
+                  </div>
+                  {% endif %}
+                  {% if entry.duration %}
+                  <div class="col-12 price">
+                    {{ entry.duration|safe|linebreaksbr }}
+                  </div>
+                  {% endif %}
+                  {% if entry.price %}
+                  <div class="col-12 price align-self-end">
+                    {{ entry.price|safe|linebreaksbr }}
+                  </div>
+                  {% endif %}
+                </div>
+              </div>
+              <div class="col-12 my-2 description-ar">
+                {{ entry.text|safe|linebreaks }}
+              </div>
+              <div class="col-12">
+                <div class="row no-gutters">
+                  {% for image in entry.images.all %}
+                  <div class="col-3 p-2">
+                    <img class="w-100" src="{{ image.image.url }}" alt="" />
+                  </div>
+                  {% endfor %}
+                </div>
+              </div>
             </div>
           </div>
           {% endfor %}
+          {% for category in category_list %}
+          {% if forloop.counter == id %}
+          <div class="carousel-item active">
+            {% else %}
+            <div class="carousel-item">
+              {% endif %}
+              <div class="row">
+                {% for entry in category.entry_set.all %}
+                <div class="col-12 text-uppercase">
+                  <h2>{{ entry.title }}</h2>
+                </div>
+                <div class="col-7">
+                  {% if entry.detail %}
+                  <img class="w-100" src="{{ entry.detail.url }}" alt="" />
+                  {% else %}
+                  <img class="w-100" src="{{ entry.preview.url }}" alt="" />
+                  {% endif %}
+                </div>
+                <div class="col-4">
+                  <div class="row h-100">
+                    {% if entry.date_start and entry.date_end %}
+                    <div class="col-12 duration">
+                      {{ entry.date_start|date:"d.m.Y" }} – {{ entry.date_end|date:"d.m.Y" }}
+                    </div>
+                    {% endif %}
+                    {% if entry.duration %}
+                    <div class="col-12 price">
+                      {{ entry.duration|safe|linebreaksbr }}
+                    </div>
+                    {% endif %}
+                    {% if entry.price %}
+                    <div class="col-12 price align-self-end">
+                      {{ entry.price|safe|linebreaksbr }}
+                    </div>
+                    {% endif %}
+                  </div>
+                </div>
+                <div class="col-12 my-2 description-ar">
+                  {{ entry.text|safe|linebreaks }}
+                </div>
+                <div class="col-12">
+                  <div class="row no-gutters">
+                    {% for image in entry.images.all %}
+                    <div class="col-3 p-2">
+                      <img class="w-100" src="{{ image.image.url }}" alt="" />
+                    </div>
+                    {% endfor %}
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+            {% endfor %}
+          </div>
         </div>
       </div>
     </div>
+    {% endblock %}
   </div>
-{% endblock %}
+</div>

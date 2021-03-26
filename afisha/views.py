@@ -81,10 +81,13 @@ def muzart(request):
 def muzart_list(request, id):
     try:
         category = Category.objects.filter(url="muzart").first().category_set.all().order_by('priority')
+        entry = Category.objects.filter(url="muzart").first().entry_set.all()
     except:
         category = None
+        entry = None
     context = {
-        'entry_list': category,
+        'category_list': category,
+        'entry_list': entry,
         'url': "muzart",
         'id': id
     }
