@@ -15,6 +15,7 @@ class Category(models.Model):
         'self', on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Родительская категория')
     priority = models.PositiveSmallIntegerField(
         "Приоритет", default=10, null=True, blank=True)
+    text = models.TextField("Описание", null=True, blank=True)
 
     def __str__(self):
         return self.name
