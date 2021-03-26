@@ -45,7 +45,7 @@
                   {% endif %}
                 </div>
               </div>
-              <div class="col-12 my-2 description-ar">
+              <div class="col-12 my-2 description">
                 {{ entry.text|safe|linebreaks }}
               </div>
               <div class="col-12">
@@ -61,12 +61,18 @@
             {% endfor %}
           </div>
           {% for category in category_list %}
-          {% if forloop.counter == id %}
-          <div class="carousel-item active">
+            {% if forloop.counter == id %}
+            <div class="carousel-item active">
             {% else %}
             <div class="carousel-item">
-              {% endif %}
+            {% endif %}
               <div class="row">
+
+                {% if  forloop.counter == 1 %}
+                {% for entry in category.entry_set.all %}
+                
+                {% endfor %}
+                {% else %}
                 {% for entry in category.entry_set.all %}
                 <div class="col-12 text-uppercase">
                   <h2>{{ entry.title }}</h2>
@@ -110,6 +116,8 @@
                   </div>
                 </div>
                 {% endfor %}
+                {% endif %}
+
               </div>
             </div>
             {% endfor %}

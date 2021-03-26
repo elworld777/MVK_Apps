@@ -14,7 +14,7 @@
   {% for category in category_list %} 
   {% if category.active %}
   <div class="col-11 m-4 rounded-lg text-center bg-muzart">
-    <a class="stretched-link" href="{{url}}">
+    <a class="stretched-link" href="{{url}}/{{forloop.counter}}">
       <div class="row h-100">
         <div class="col-9 m-auto">{{category.name}}</div>
       </div>
