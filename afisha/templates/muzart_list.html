@@ -68,33 +68,31 @@
             {% endif %}
               <div class="row">
                 {% if  forloop.counter == 1 %}
-                {% for entry in category.entry_set.all %}
-                <div class="col-12 text-uppercase text-center py-4 px-5 description">
-                    <h2>{{ category.name }}</h2>
-                </div>
-                <div class="col-12 my-2 description">
-                    {{ category.text|safe|linebreaks }}
-                </div>
-                <div class="col-3">
-                    {% if entry.detail %}
-                    <img class="w-100" src="{{ entry.detail.url }}" alt="" />
-                    {% else %}
-                    <img class="w-100" src="{{ entry.preview.url }}" alt="" />
-                    {% endif %}
-                </div>
-                <div class="col-4">
-                    <div class="row h-100">
-                    {% if entry.price %}
-                        <div class="col-12 price align-self-end description-ar">
-                            {{ entry.price|safe|linebreaksbr }}
-                        </div>
-                    {% endif %}
-                        <div class="col-12 description-ar align-self-end">
-                            {{ entry.text|safe|linebreaksbr }}
+                    <div class="col-12 text-uppercase text-center py-4 px-5 description">
+                        <h2>{{ category.name }}</h2>
+                    </div>
+                    <div class="col-12 my-2 description">
+                        {{ category.text|safe|linebreaks }}
+                    </div>
+                    {% for entry in category.entry_set.all %}
+                    <div class="col-3">
+                        {% if entry.detail %}
+                        <img class="w-100" src="{{ entry.detail.url }}" alt="" />
+                        {% else %}
+                        <img class="w-100" src="{{ entry.preview.url }}" alt="" />
+                        {% endif %}
+                    </div>
+                    <div class="col-4">
+                        <div class="row h-100">
+                            <div class="col-12 price align-self-end description-ar">
+                                {{ entry.price|safe|linebreaksbr }}
+                            </div>
+                            <div class="col-12 description-ar align-self-end">
+                                {{ entry.text|safe|linebreaks }}
+                            </div>
                         </div>
                     </div>
-                </div>
-                {% endfor %}
+                    {% endfor %}
                 {% else %}
                 {% for entry in category.entry_set.all %}
                 <div class="col-12 text-uppercase">
