@@ -2,6 +2,7 @@
 
 {% block content %} 
   <div class="container-fluid vh-100">
+    <img class="exp" src="{{setting.exhibit.image.url}}" alt="">
     <div class="row panel">
     </div>
     <div class="row header header-main align-items-center">
@@ -18,7 +19,6 @@
       {% endif %}
     {% endfor %}
     </div>
-    <img class="exp" src="{{setting.exhibit.image.url}}" alt="">
     <h2 class="address">MVK.YANAO.RU</h2>
   </div>
 {% endblock %}
