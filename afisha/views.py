@@ -73,7 +73,7 @@ def muzart(request):
         entry = None
     context = {
         'category_list': category,
-        'entry_list': entry,
+        'list': entry,
         'url': "muzart"
     }
     return render(request, 'muzart_category.html', context)
