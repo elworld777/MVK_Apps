@@ -33,7 +33,9 @@
         data-interval="0"
       >
         <div class="carousel-inner">
-          {% for entry in entry_list %} {% if forloop.counter0 == id %}
+          {% for entry in entry_list %}
+          {% if entry.is_active %}
+          {% if forloop.counter0 == id %}
           <div class="carousel-item active">
           {% else %}
           <div class="carousel-item">
@@ -94,6 +96,7 @@
               </div>
             </div>
           </div>
+          {% endif %}
           {% endfor %}
         </div>
       </div>

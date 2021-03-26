@@ -15,6 +15,7 @@
         <div class="carousel-item">
         {% endif %}
             {% for entry in entry_list %}
+            {% if entry.is_active %}
             <div class="row">
               <div class="col-12 text-uppercase text-center py-4 px-5">
                 <h2>{{ entry.title }}</h2>
@@ -58,6 +59,7 @@
                 </div>
               </div>
             </div>
+            {% endif %}
             {% endfor %}
           </div>
           {% for category in category_list %}
@@ -73,6 +75,7 @@
                         {{ category.text|safe|linebreaks }}
                     </div>
                     {% for entry in category.entry_set.all %}
+                    {% if entry.is_active %}
                     <div class="col my-3">
                         {% if entry.detail %}
                         <img class="w-100" src="{{ entry.detail.url }}" alt="" />
@@ -91,9 +94,11 @@
                         </div>
                     </div>
                     <div class="w-100"></div>
+                     {% endif %}
                     {% endfor %}
                 {% else %}
                     {% for entry in category.entry_set.all %}
+                    {% if entry.is_active %}
                     <div class="col-12 text-uppercase text-center py-4">
                         <h2>{{ entry.title }}</h2>
                     </div>
@@ -135,6 +140,7 @@
                         {% endfor %}
                         </div>
                     </div>
+                    {% endif %}
                     {% endfor %}
                 {% endif %}
               </div>
