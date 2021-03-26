@@ -70,10 +70,10 @@
                 {% if  forloop.counter == 1 %}
                 {% for entry in category.entry_set.all %}
                 <div class="col-12 text-uppercase text-center py-4 px-5 description">
-                    <h2>{{ entry.title }}</h2>
+                    <h2>{{ category.name }}</h2>
                 </div>
                 <div class="col-12 my-2 description">
-                    {{ entry.text|safe|linebreaks }}
+                    {{ category.text|safe|linebreaks }}
                 </div>
                 <div class="col-3">
                     {% if entry.detail %}
@@ -90,7 +90,7 @@
                         </div>
                     {% endif %}
                         <div class="col-12 description-ar align-self-end">
-                            {{ entry.price|safe|linebreaksbr }}
+                            {{ entry.text|safe|linebreaksbr }}
                         </div>
                     </div>
                 </div>
