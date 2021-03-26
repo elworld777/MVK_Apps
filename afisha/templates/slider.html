@@ -1,0 +1,23 @@
+{% extends 'nav_slider.html' %} 
+{% block main %}
+      <div
+        id="carouselEntry"
+        class="carousel slide"
+        data-ride="carousel"
+        data-interval="0"
+      >
+        <div class="carousel-inner">
+          {% for entry in entry_list %}
+          {% if entry.is_active %}
+          {% if forloop.counter0 == 0 %}
+          <div class="carousel-item active">
+          {% endif %}
+                {% if entry.preview %}
+                <img class="d-block w-100" src="{{ entry.preview.url }}" alt="" />
+                {% endif %}
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+  {% endblock %}
