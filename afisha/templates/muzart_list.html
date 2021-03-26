@@ -9,12 +9,12 @@
       data-interval="0"
     >
       <div class="carousel-inner">
-        {% for entry in entry_list %}
-        {% if forloop.counter0 == id %}
+        {% if id == 0 %}
         <div class="carousel-item active">
-          {% else %}
-          <div class="carousel-item">
-            {% endif %}
+        {% else %}
+        <div class="carousel-item">
+        {% endif %}
+            {% for entry in entry_list %}
             <div class="row">
               <div class="col-12 text-uppercase">
                 <h2>{{ entry.title }}</h2>
@@ -58,8 +58,8 @@
                 </div>
               </div>
             </div>
+            {% endfor %}
           </div>
-          {% endfor %}
           {% for category in category_list %}
           {% if forloop.counter == id %}
           <div class="carousel-item active">
