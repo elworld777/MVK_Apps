@@ -1,0 +1,10 @@
+{% extends 'nav.html' %}
+{% block main %}
+{% regroup entry_list by date_start|date:"F" as month_list %}
+{% for month in month_list %}
+    {{month.grouper}}
+    {% for entry in month.list %}
+        {{entry.text}}
+    {% endfor %}
+{% endfor %}
+{% endblock %}

@@ -110,3 +110,14 @@ def eco(request):
         'entry_list': entry
     }
     return render(request, 'slider.html', context)
+
+
+def excurs(request):
+    try:
+        entry = Category.objects.filter(url="excurs").first().entry_set.all().order_by('date_start')
+    except:
+        entry = None
+    context = {
+        'entry_list': entry
+    }
+    return render(request, 'excurs_list.html', context)

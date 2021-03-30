@@ -6,6 +6,7 @@ urlpatterns = [
     path('ar', views.ar, name='ar'),
     path('info', views.info, name='info'),
     path('muzart', views.muzart, name='muzart'),
+    path('excurs', views.excurs, name='excurs'),
     path('eco', views.eco, name='eco'),
     path('muzart/<int:id>', views.muzart_list, name='muzart_list'),
     path('<str:pk>', views.exhibitions, name='exhibitions'),
