@@ -4,9 +4,7 @@
 {% for month in month_list %}
     {{month.grouper}}
     {% for date in month.list %}
-        {% for entry in date.entry_dates %}
-        {{entry.text}}
-        {% endfor %}
+        {{date.entry_dates.text}}
     {% endfor %}
 {% endfor %}
 {% endblock %}
