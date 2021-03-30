@@ -66,6 +66,11 @@ class Gallery(models.Model):
         verbose_name = "Галерея"
         verbose_name_plural = "Галереи"
 
+class Dates(models.Model):
+    date_start = models.DateField("Дата начала", null=True, blank=True)
+    date_end = models.DateField("Дата окончания", null=True, blank=True)
+    entry_dates = models.ForeignKey(
+        Entry, on_delete=models.CASCADE, related_name='entry_dates')
 
 class Exhibit(models.Model):
     name = models.CharField("Название", max_length=150)
