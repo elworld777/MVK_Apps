@@ -11,6 +11,8 @@
           {% if entry.is_active %}
           {% if forloop.counter0 == 0 %}
           <div class="carousel-item active">
+          {% else %}
+          <div class="carousel-item">
           {% endif %}
                 {% if entry.preview %}
                 <img class="d-block w-100" src="{{ entry.preview.url }}" alt="" />
