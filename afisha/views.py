@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView
 from afisha.models import Category
+from afisha.models import Dates
 from afisha.models import Setting
 
 # Create your views here.
@@ -114,10 +115,10 @@ def eco(request):
 
 def excurs(request):
     try:
-        entry = Category.objects.filter(url="excurs").first().entry_set.all().order_by('date_start')
+        dates = Dates.objects.all().order_by('date_start')
     except:
-        entry = None
+        dates = None
     context = {
-        'entry_list': entry
+        'dates_list': dates
     }
     return render(request, 'excurs_list.html', context)
