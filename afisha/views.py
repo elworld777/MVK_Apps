@@ -119,7 +119,7 @@ def test(request):
     try:
         category = Category.objects.filter(
             url="exhibitions").first().category_set.all().order_by('priority')
-        entry = Category.objects.filter(url="exhibitions").first().entry_set(manager='active_objects')
+        entry = Category.objects.filter(url="exhibitions").first().entry_set(manager='active_objects').all()
     except:
         category = None
         entry = None
