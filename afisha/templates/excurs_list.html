@@ -20,18 +20,15 @@
               </div>
               <div class="col-5">
                 <div class="row h-100">
-                  {% if date.date_start %}
-                  <div class="col-12 duration">
-                    {{ date.date_start|date:"d.m.Y" }}{% if date.date_end %} – {{ date.date_end|date:"d.m.Y" }}{% endif %}
+                  <div class="col-12">
+                    <h4>{{ date.entry_dates.duration|safe|linebreaksbr }}</h4>
+                    <h3>{{ entry.title }}</h3>
                   </div>
-                  {% endif %}
-                  {% if date.entry_dates.duration %}
-                  <div class="col-12 price">
-                    {{ date.entry_dates.duration|safe|linebreaksbr }}
-                  </div>
-                  {% endif %}
                   {% if date.entry_dates.price %}
-                  <div class="col-12 price align-self-end">
+                  <div class="col-12 price align-self-end description-ar">
+                    {% if date.date_start %}
+                        {{ date.date_start|date:"d.m.Y" }}{% if date.date_end %} – {{ date.date_end|date:"d.m.Y" }}{% endif %}
+                    {% endif %}
                     {{ date.entry_dates.price|safe|linebreaksbr }}
                   </div>
                   {% endif %}
