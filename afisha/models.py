@@ -5,7 +5,7 @@ from django.utils.functional import cached_property
 
 class EntryManager(models.Manager):
     def get_queryset(self):
-        return super().get_queryset().filter(Q(active=True), Q(date_end__gte=date.today | Q(date_end=None))
+        return super().get_queryset().filter(Q(active=True), Q(date_end__gte=date.today() | Q(date_end=None))
 
 
 class Category(models.Model):
@@ -44,7 +44,6 @@ class Entry(models.Model):
     duration = models.TextField("Продолжительность", null=True, blank=True)
     price = models.TextField("Цены", null=True, blank=True)
     text = models.TextField("Описание")
-    objects = EntryManager()
 
     def __str__(self):
         return self.title
