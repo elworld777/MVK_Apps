@@ -22,12 +22,12 @@
                 <div class="row h-100">
                   <div class="col-12">
                     <h4>{{ date.entry_dates.duration|safe|linebreaksbr }}</h4>
-                    <h3>{{ entry.title }}</h3>
+                    <h3>{{ date.entry_dates.title }}</h3>
                   </div>
                   {% if date.entry_dates.price %}
                   <div class="col-12 price align-self-end description-ar">
                     {% if date.date_start %}
-                        {{ date.date_start|date:"d.m.Y" }}{% if date.date_end %} – {{ date.date_end|date:"d.m.Y" }}{% endif %}
+                        {{ date.date_start|date:"d.m.Y" }}{% if date.date_end %} – {{ date.date_end|date:"d.m.Y" }}{% endif %}<br>
                     {% endif %}
                     {{ date.entry_dates.price|safe|linebreaksbr }}
                   </div>
