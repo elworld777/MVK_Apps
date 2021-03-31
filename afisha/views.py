@@ -114,3 +114,18 @@ def excurs(request):
         'dates_list': dates
     }
     return render(request, 'excurs_list.html', context)
+
+def test(request):
+    try:
+        category = Category.objects.filter(
+            url="exhibitions").first().category_set.all().order_by('priority')
+        entry = Category.objects.filter(url=pk).first().entry_set(manager='active_objects')
+    except:
+        category = None
+        entry = None
+    context = {
+        'category_list': category,
+        'entry_list': entry,
+        'url': "exhibitions"
+    }
+    return render(request, 'entry_list.html', context)
