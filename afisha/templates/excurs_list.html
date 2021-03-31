@@ -29,7 +29,7 @@
                     {% if date.date_start %}
                         {{ date.date_start|date:"d.m.Y" }}{% if date.date_end %} – {{ date.date_end|date:"d.m.Y" }}{% endif %}<br>
                     {% endif %}
-                    {{ date.entry_dates.price|safe|linebreaksbr }}
+                    {{ date.entry_dates.price|safe|linebreaks }}
                   </div>
                   {% endif %}
                 </div>
