@@ -1,10 +1,49 @@
 {% extends 'nav.html' %}
 {% block main %}
 {% regroup dates_list by date_start|date:"F" as month_list %}
-{% for month in month_list %}
-    {{month.grouper}}
-    {% for date in month.list %}
-        {{date.entry_dates.text}}
+<div class="row m-4 entry-list overflow-auto">
+  <div class="col">
+    {% for month in month_list %}
+
+            <div class="row">
+                <div class="col-12 title-50 text-center">
+                {{month.grouper}}
+                </div>
+            {% for date in month.list %}
+
+               <div class="col-6">
+                {% if date.entry_dates.detail %}
+                <img class="w-100" src="{{ date.entry_dates.detail.url }}" alt="" />
+                {% else %}
+                <img class="w-100" src="{{ date.entry_dates.preview.url }}" alt="" />
+                {% endif %}
+              </div>
+              <div class="col-5">
+                <div class="row h-100">
+                  {% if date.date_start and date.date_end %}
+                  <div class="col-12 duration">
+                    {{ date.date_start|date:"d.m.Y" }} – {{ date.date_end|date:"d.m.Y" }}
+                  </div>
+                  {% endif %}
+                  {% if date.entry_dates.duration %}
+                  <div class="col-12 price">
+                    {{ date.entry_dates.duration|safe|linebreaksbr }}
+                  </div>
+                  {% endif %}
+                  {% if date.entry_dates.price %}
+                  <div class="col-12 price align-self-end">
+                    {{ date.entry_dates.price|safe|linebreaksbr }}
+                  </div>
+                  {% endif %}
+                </div>
+              </div>
+              <div class="col-12 my-2 description">
+                {{ date.entry_dates.text|safe|linebreaks }}
+              </div>
+            {% endfor %}
+            </div>
+
     {% endfor %}
-{% endfor %}
+  </div>
+</div>
 {% endblock %}
