@@ -3,6 +3,11 @@ from datetime import date
 from django.utils.functional import cached_property
 
 
+class EntryManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().filter(Q(active=True), Q(date_end__gte=date.today()) | Q(date_end=None))
+
+
 class Category(models.Model):
     name = models.CharField("Категория", max_length=150)
     active = models.BooleanField("Активность", default=True)
@@ -39,6 +44,7 @@ class Entry(models.Model):
     duration = models.TextField("Продолжительность", null=True, blank=True)
     price = models.TextField("Цены", null=True, blank=True)
     text = models.TextField("Описание")
+    objects = EntryManager()
 
     def __str__(self):
         return self.title
@@ -66,11 +72,13 @@ class Gallery(models.Model):
         verbose_name = "Галерея"
         verbose_name_plural = "Галереи"
 
+
 class Dates(models.Model):
     date_start = models.DateField("Дата начала", null=True, blank=True)
     date_end = models.DateField("Дата окончания", null=True, blank=True)
     entry_dates = models.ForeignKey(
         Entry, on_delete=models.CASCADE, related_name='entry_dates')
+
 
 class Exhibit(models.Model):
     name = models.CharField("Название", max_length=150)

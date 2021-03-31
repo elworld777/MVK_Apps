@@ -6,14 +6,6 @@ from afisha.models import Setting
 
 # Create your views here.
 
-
-class ListMaps(ListView):
-    model = Category
-    # queryset = Maps.objects.all().order_by('id')
-    context_object_name = 'category'
-    # template_name='RomanMaps/Maps.html'
-
-
 def index(request):
     category = Category.objects.filter(
         parent_category=None).order_by('priority')
