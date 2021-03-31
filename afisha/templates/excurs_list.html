@@ -6,7 +6,7 @@
     {% for month in month_list %}
 
             <div class="row">
-                <div class="col-12 title-50 text-center">
+                <div class="col-12 title-50 text-center py-4">
                 {{month.grouper}}
                 </div>
             {% for date in month.list %}
@@ -37,7 +37,7 @@
                   {% endif %}
                 </div>
               </div>
-              <div class="col-12 my-2 description">
+              <div class="col-12 my-2 duration">
                 {{ date.entry_dates.text|safe|linebreaks }}
               </div>
             {% endfor %}
