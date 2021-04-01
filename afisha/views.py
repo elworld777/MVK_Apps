@@ -41,7 +41,8 @@ def entry(request, pk, id):
     context = {
         'entry_list': entry,
         'id': id,
-        'url': pk
+        'url': pk,
+        'next': True
     }
     return render(request, 'detail.html', context)
 
@@ -89,7 +90,8 @@ def muzart_list(request, id):
         'category_list': category,
         'entry_list': entry,
         'url': "muzart",
-        'id': id
+        'id': id,
+        'next': True
     }
     return render(request, 'muzart_list.html', context)
 
@@ -100,7 +102,8 @@ def eco(request):
     except:
         entry = None
     context = {
-        'entry_list': entry
+        'entry_list': entry,
+        'next': True
     }
     return render(request, 'slider.html', context)
 
