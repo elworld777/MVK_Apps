@@ -3,7 +3,6 @@
 {% regroup dates_list by date_start|date:"F" as month_list %}
 <div class="row entry-list overflow-auto">
   <div class="col">
-    {% for month in month_list %}
       <div
         id="carouselEntry"
         class="carousel slide"
@@ -11,6 +10,7 @@
         data-interval="0"
       >
         <div class="carousel-inner">
+        {% for month in month_list %}
           {% if forloop.counter0 == 0 %}
           <div class="carousel-item active">
           {% else %}
@@ -65,9 +65,9 @@
                 </div>
             </div>
           </div>
+        {% endfor %}
         </div>
       </div>
-    {% endfor %}
   </div>
 </div>
 {% endblock %}
