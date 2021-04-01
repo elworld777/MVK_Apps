@@ -45,7 +45,8 @@ def entry(request, pk, id):
         'entry_list': entry,
         'id': id,
         'url': pk,
-        'next': True
+        'next': True,
+        'count': entry.count()
     }
     return render(request, 'detail.html', context)
 
@@ -96,7 +97,8 @@ def muzart_list(request, id):
         'entry_list': entry,
         'url': "muzart",
         'id': id,
-        'next': True
+        'next': True,
+        'count': entry.count()
     }
     return render(request, 'muzart_list.html', context)
 
@@ -109,7 +111,8 @@ def eco(request):
         entry = None
     context = {
         'entry_list': entry,
-        'next': True
+        'next': True,
+        'count': entry.count()
     }
     return render(request, 'slider.html', context)
 
@@ -121,7 +124,8 @@ def excurs(request):
         dates = None
     context = {
         'dates_list': dates,
-        'next': True
+        'next': True,
+        'count': dates.count()
     }
     return render(request, 'excurs_list.html', context)
 
