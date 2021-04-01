@@ -9,8 +9,8 @@
                 <div class="col-12 title-50 text-center py-4">
                 {{month.grouper}}
                 </div>
-                {% for date in month.list %}
                 <div class="col-12 excurs">
+                {% for date in month.list %}
                   <div class="row">
                     <div class="col-6">
                       {% if date.entry_dates.detail %}
@@ -39,8 +39,8 @@
                       {{ date.entry_dates.text|safe|linebreaks }}
                     </div>
                   </div>
-                </div>
                 {% endfor %}
+                </div>
             </div>
 
     {% endfor %}
