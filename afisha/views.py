@@ -6,6 +6,7 @@ from afisha.models import Setting
 
 # Create your views here.
 
+
 def index(request):
     category = Category.objects.filter(
         parent_category=None).order_by('priority')
@@ -21,7 +22,8 @@ def exhibitions(request, pk):
     try:
         category = Category.objects.filter(
             url=pk).first().category_set.all().order_by('priority')
-        entry = Category.objects.filter(url=pk).first().entry_set(manager='active_objects').all()
+        entry = Category.objects.filter(url=pk).first(
+        ).entry_set(manager='active_objects').all()
     except:
         category = None
         entry = None
@@ -35,7 +37,8 @@ def exhibitions(request, pk):
 
 def entry(request, pk, id):
     try:
-        entry = Category.objects.filter(url=pk).first().entry_set(manager='active_objects').all()
+        entry = Category.objects.filter(url=pk).first(
+        ).entry_set(manager='active_objects').all()
     except:
         entry = None
     context = {
@@ -66,7 +69,8 @@ def muzart(request):
     try:
         category = Category.objects.filter(
             url="muzart").first().category_set.all().order_by('priority')
-        entry = Category.objects.filter(url="muzart").first().entry_set(manager='active_objects').all()
+        entry = Category.objects.filter(url="muzart").first(
+        ).entry_set(manager='active_objects').all()
     except:
         category = None
         entry = None
@@ -82,7 +86,8 @@ def muzart_list(request, id):
     try:
         category = Category.objects.filter(
             url="muzart").first().category_set.all().order_by('priority')
-        entry = Category.objects.filter(url="muzart").first().entry_set(manager='active_objects').all()
+        entry = Category.objects.filter(url="muzart").first(
+        ).entry_set(manager='active_objects').all()
     except:
         category = None
         entry = None
@@ -98,7 +103,8 @@ def muzart_list(request, id):
 
 def eco(request):
     try:
-        entry = Category.objects.filter(url="eco").first().entry_set(manager='active_objects').all()
+        entry = Category.objects.filter(url="eco").first(
+        ).entry_set(manager='active_objects').all()
     except:
         entry = None
     context = {
@@ -118,11 +124,13 @@ def excurs(request):
     }
     return render(request, 'excurs_list.html', context)
 
+
 def test(request):
     try:
         category = Category.objects.filter(
             url="exhibitions").first().category_set.all().order_by('priority')
-        entry = Category.objects.filter(url="exhibitions").first().entry_set(manager='active_objects').all()
+        entry = Category.objects.filter(url="exhibitions").first(
+        ).entry_set(manager='active_objects').all()
     except:
         category = None
         entry = None
