@@ -9,6 +9,11 @@ class EntryManager(models.Manager):
         return super().get_queryset().filter(Q(active=True), Q(date_end__gte=date.today()) | Q(date_end=None))
 
 
+class DateManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().filter(Q(entry_dates__active=True), Q(date_end__gte=date.today()) | Q(date_start__gte=date.today()))
+
+
 class Category(models.Model):
     name = models.CharField("Категория", max_length=150)
     active = models.BooleanField("Активность", default=True)
@@ -80,6 +85,8 @@ class Dates(models.Model):
     date_end = models.DateField("Дата окончания", null=True, blank=True)
     entry_dates = models.ForeignKey(
         Entry, on_delete=models.CASCADE, related_name='entry_dates')
+    objects = models.Manager()
+    active_objects = DateManager()
 
 
 class Exhibit(models.Model):

@@ -116,11 +116,12 @@ def eco(request):
 
 def excurs(request):
     try:
-        dates = Dates.objects.all().order_by('date_start')
+        dates = Dates.active_objects.all().order_by('date_start')
     except:
         dates = None
     context = {
-        'dates_list': dates
+        'dates_list': dates,
+        'next': True
     }
     return render(request, 'excurs_list.html', context)
 
