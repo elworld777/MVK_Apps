@@ -45,6 +45,7 @@ class Entry(models.Model):
     duration = models.TextField("Продолжительность", null=True, blank=True)
     price = models.TextField("Цены", null=True, blank=True)
     text = models.TextField("Описание")
+    objects = models.Manager()
     active_objects = EntryManager()
 
     def __str__(self):
