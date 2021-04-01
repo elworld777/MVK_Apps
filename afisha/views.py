@@ -96,7 +96,7 @@ def muzart_list(request, id):
 
 def eco(request):
     try:
-        entry = Category.objects.filter(url="eco").first().entry_set.all()
+        entry = Category.objects.filter(url="eco").first().entry_set(manager='active_objects').all()
     except:
         entry = None
     context = {
