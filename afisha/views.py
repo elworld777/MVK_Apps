@@ -21,7 +21,7 @@ def exhibitions(request, pk):
     try:
         category = Category.objects.filter(
             url=pk).first().category_set.all().order_by('priority')
-        entry = Category.objects.filter(url=pk).first().entry_set.all()
+        entry = Category.objects.filter(url=pk).first().entry_set(manager='active_objects').all()
     except:
         category = None
         entry = None
@@ -35,7 +35,7 @@ def exhibitions(request, pk):
 
 def entry(request, pk, id):
     try:
-        entry = Category.objects.filter(url=pk).first().entry_set.all()
+        entry = Category.objects.filter(url=pk).first().entry_set(manager='active_objects').all()
     except:
         entry = None
     context = {
@@ -65,7 +65,7 @@ def muzart(request):
     try:
         category = Category.objects.filter(
             url="muzart").first().category_set.all().order_by('priority')
-        entry = Category.objects.filter(url="muzart").first().entry_set.all()
+        entry = Category.objects.filter(url="muzart").first().entry_set(manager='active_objects').all()
     except:
         category = None
         entry = None
@@ -81,7 +81,7 @@ def muzart_list(request, id):
     try:
         category = Category.objects.filter(
             url="muzart").first().category_set.all().order_by('priority')
-        entry = Category.objects.filter(url="muzart").first().entry_set.all()
+        entry = Category.objects.filter(url="muzart").first().entry_set(manager='active_objects').all()
     except:
         category = None
         entry = None

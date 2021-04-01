@@ -1,7 +1,6 @@
 {% extends 'nav.html' %} {% block main %}
 <div class="row m-4 entry-list overflow-auto cat justify-content-center">
   {% for entry in list %}
-  {% if entry.active %}
   <div class="col-11 m-4 rounded-lg text-center bg-muzart">
     <a class="stretched-link" href="{{url}}/0">
       <div class="row h-100">
@@ -9,7 +8,6 @@
       </div>
     </a>
   </div>
-  {% endif %} 
   {% endfor %} 
   {% for category in category_list %} 
   {% if category.active %}

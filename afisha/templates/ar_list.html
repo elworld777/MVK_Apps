@@ -1,29 +1,4 @@
-{% extends 'wrapper.html' %} {% block content %}
-<div class="container-fluid vh-100 overflow-auto">
-  <div class="row header header-entry align-items-center px-5 py-4">
-    <div class="col-2 text-center">
-      <img class="img-fluid" src="/media/logo.png" alt="" />
-    </div>
-    <div class="col-5">
-      <strong
-        >ЯМАЛО-НЕНЕЦКИЙ ОКРУЖНОЙ МУЗЕЙНО&#8209;ВЫСТАВОЧНЫЙ КОМПЛЕКС
-        ИМЕНИ&nbsp;И.С.ШЕМАНОВСКОГО</strong
-      >
-    </div>
-    <div class="col-5">
-      <strong>
-        <p>режим работы:</p>
-      </strong>
-      <p>
-        вт-пт 10:00 - 11:30, 12:00 - 13:30, 14:00 - 15:30, 16:00 - 17:30, 18:00
-        - 19:30,
-      </p>
-      <p>
-        сб-вс 11:00 - 12:30, 13:00 - 14:30, 15:00 - 16:30, 17:00 - 18:00, пн
-        выходной
-      </p>
-    </div>
-  </div>
+{% extends 'nav.html' %} {% block main %}
   <div class="row m-4 entry-list overflow-hidden">
     <div class="col">
       {% for entry in entry_list %}
@@ -70,10 +45,4 @@
       {% endfor %}
     </div>
   </div>
-  <div class="row footer justify-content-center">
-    <div class="col-1 home">
-      <a href="/afisha" class="stretched-link"></a>
-    </div>
-  </div>
-</div>
 {% endblock %}
