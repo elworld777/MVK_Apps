@@ -3,6 +3,7 @@ from django.views.generic import ListView
 from afisha.models import Category
 from afisha.models import Dates
 from afisha.models import Setting
+from django.db.models import Count
 
 # Create your views here.
 
