@@ -8,8 +8,8 @@ from afisha.models import Setting
 
 
 def index(request):
-    category = Category.objects.filter(
-        parent_category=None).order_by('priority')
+    category = Category.active_objects.filter(
+        parent_category=None)
     setting = Setting.objects.all().first()
     context = {
         'category_list': category,
@@ -21,7 +21,7 @@ def index(request):
 def exhibitions(request, pk):
     try:
         category = Category.objects.filter(
-            url=pk).first().category_set.all().order_by('priority')
+            url=pk).first().category_set(manager='active_objects').all()
         entry = Category.objects.filter(url=pk).first(
         ).entry_set(manager='active_objects').all()
     except:
@@ -69,7 +69,7 @@ def info(request):
 def muzart(request):
     try:
         category = Category.objects.filter(
-            url="muzart").first().category_set.all().order_by('priority')
+            url="muzart").first().category_set(manager='active_objects').all()
         entry = Category.objects.filter(url="muzart").first(
         ).entry_set(manager='active_objects').all()
     except:
@@ -86,7 +86,7 @@ def muzart(request):
 def muzart_list(request, id):
     try:
         category = Category.objects.filter(
-            url="muzart").first().category_set.all().order_by('priority')
+            url="muzart").first().category_set(manager='active_objects').all()
         entry = Category.objects.filter(url="muzart").first(
         ).entry_set(manager='active_objects').all()
     except:
