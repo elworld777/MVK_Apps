@@ -20,17 +20,21 @@
                 <div class="col-12 title-50 text-center py-4">
                 {{month.grouper}}
                 </div>
-                <div class="col-12 excurs">
+            </div>
+            <div class="row">
                 {% for date in month.list %}
+                <div class="col-12 excurs">
                 {% if forloop.counter0 == 3 %}
                 </div>
                 </div>
                 </div>
                 <div class="carousel-item">
                 <div class="row">
-                <div class="col-12 title-50 text-center py-4">
-                {{month.grouper}}
+                    <div class="col-12 title-50 text-center py-4">
+                    {{month.grouper}}
+                    </div>
                 </div>
+                <div class="row">
                 <div class="col-12 excurs">
                 {% endif %}
                   <div class="row pt-4 px-5">
@@ -61,8 +65,8 @@
                       {{ date.entry_dates.text|safe|linebreaks }}
                     </div>
                   </div>
-                {% endfor %}
                 </div>
+                {% endfor %}
             </div>
           </div>
         {% endfor %}
