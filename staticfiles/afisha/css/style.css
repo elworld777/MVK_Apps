@@ -240,10 +240,10 @@ p{
     margin-bottom: 0.75rem;
 }
 
-.excurs>.row:nth-child(even){
+.excurs>div:nth-child(even){
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-.excurs>.row:nth-last-child(1){
+.excurs>div:nth-last-child(1){
     background-color: transparent;
 }
