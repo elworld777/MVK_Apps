@@ -7,7 +7,9 @@
       <div class="col-7 mb-4">
         <div class="row no-gutters align-items-center border border-left-0 border-white rounded-lg">
           <div class="col-3">
+          {% if category.icon %}
             <img class="" src="{{category.icon.url}}" alt="">
+          {% endif %}
           </div>
           <div class="col-9 text-center"><a class="stretched-link" href="{{category.url}}{% if category.num is not None %}/{{category.num}}{% endif %}">{{category.name}}</a></div>
         </div>
