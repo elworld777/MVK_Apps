@@ -2,6 +2,7 @@ from django.db import models
 from django.db.models import Q
 from datetime import date
 from django.utils.functional import cached_property
+from django.db.models import Count
 
 class CategoryManager(models.Manager):
     def get_queryset(self):
