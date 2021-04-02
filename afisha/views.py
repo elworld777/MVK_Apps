@@ -134,7 +134,7 @@ def excurs(request):
 def test(request):
     try:
         category = Category.objects.filter(
-            url="prog").first().category_set.all().annotate(entry_count=Count('entry')).filter(entry_count__gt=0).order_by('priority')
+            url="prog").first().category_set(manager='active_objects').all()
         entry = Category.objects.filter(url="prog").first(
         ).entry_set(manager='active_objects').all()
     except:

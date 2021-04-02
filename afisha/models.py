@@ -3,6 +3,9 @@ from django.db.models import Q
 from datetime import date
 from django.utils.functional import cached_property
 
+class CategoryManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().annotate(entry_count=Count('entry'), cat_count=Count('category')).filter(Q(active=True), Q(entry_count__gt=0) | Q(cat_count__gt=0)).order_by('priority')
 
 class EntryManager(models.Manager):
     def get_queryset(self):
@@ -27,6 +30,8 @@ class Category(models.Model):
     priority = models.PositiveSmallIntegerField(
         "Приоритет", default=10, null=True, blank=True)
     text = models.TextField("Описание", null=True, blank=True)
+    objects = models.Manager()
+    active_objects = CategoryManager()
 
     def __str__(self):
         return self.name
