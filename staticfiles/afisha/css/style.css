@@ -101,7 +101,7 @@ h4 {
 }
 
 .entry-list {
-    height: 1570px;
+    height: 1590px;
 }
 
 .entry-list::-webkit-scrollbar {
@@ -249,5 +249,5 @@ p {
 }
 
 .excurs {
-    height: 1450px;
+    height: 1470px;
 }
