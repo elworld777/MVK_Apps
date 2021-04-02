@@ -24,9 +24,9 @@
               </div>
               <div class="col-4">
                 <div class="row h-100">
-                  {% if entry.date_start and entry.date_end %}
+                  {% if entry.date_start %}
                   <div class="col-12 duration">
-                    {{ entry.date_start|date:"d.m.Y" }} – {{ entry.date_end|date:"d.m.Y" }}
+                    {{ entry.date_start|date:"d.m.Y" }}{% if entry.date_end %} – {{ entry.date_end|date:"d.m.Y" }}{% endif %}
                   </div>
                   {% endif %} {% if entry.duration %}
                   <div class="col-12 duration">
