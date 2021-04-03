@@ -138,7 +138,7 @@ def test(request):
         date_today = date.today()
         # category = Category.objects.filter(
         #     url="prog").first().category_set.all().annotate(entry_active=Count('entry', distinct=True, filter=Q(active=True)), entry_date=Count('entry', distinct=True, filter=Q(date_end__gte=date.today())), entry_none=Count('entry', distinct=True, filter=Q(date_end=None)), cat_count=Count('category', distinct=True, filter=Q(active=True))).filter(Q(active=True), (Q(entry_active__gt=0) & (Q(entry_date__gt=0) | Q(entry_none__gt=0))) | Q(cat_count__gt=0)).order_by('priority')
-        category = Category.objects.filter(url="prog").first().category_set.all().annotate(entry_active=Count('entry', distinct=True, filter=Q(active=True)), entry_date=Count('entry', distinct=True, filter=Q(date_end__gte=date_today)), cat_count=Count('category', distinct=True, filter=Q(active=True))).filter(Q(active=True), (Q(entry_active__gt=0) & Q(entry_date__gt=0)) | Q(cat_count__gt=0)).order_by('priority')
+        category = Category.objects.filter(url="prog").first().category_set.all().annotate(entry_active=Count('entry', distinct=True, filter=Q(active=True)), entry_date=Count('entry', distinct=True, filter=Q(date_end__gte=date_today)), cat_count=Count('category', distinct=True, filter=Q(active=True))).filter(Q(active=True), Q(entry_active__gt=0) | Q(cat_count__gt=0)).order_by('priority')
 
         entry = Category.objects.filter(url="prog").first(
         ).entry_set(manager='active_objects').all()
