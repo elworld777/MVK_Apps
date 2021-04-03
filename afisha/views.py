@@ -5,6 +5,7 @@ from afisha.models import Dates
 from afisha.models import Setting
 from django.db.models import Q
 from django.db.models import Count
+from datetime import date
 
 # Create your views here.
 
