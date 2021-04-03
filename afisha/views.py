@@ -3,6 +3,8 @@ from django.views.generic import ListView
 from afisha.models import Category
 from afisha.models import Dates
 from afisha.models import Setting
+from django.db.models import Q
+from django.db.models import Count
 
 # Create your views here.
 
@@ -133,7 +135,7 @@ def excurs(request):
 def test(request):
     try:
         category = Category.objects.filter(
-            url="prog").first().category_set(manager='active_objects').all()
+            url="prog").first().category_set.all().annotate(entry_count=Count('entry', filter=(Q(active=True), Q(date_end__gte=date.today()) | Q(date_end=None))), cat_count=Count('category', filter=Q(active=True))).filter(Q(active=True), Q(entry_count__gt=0) | Q(cat_count__gt=0)).order_by('priority')
         entry = Category.objects.filter(url="prog").first(
         ).entry_set(manager='active_objects').all()
     except:
