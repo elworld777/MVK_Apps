@@ -10,7 +10,7 @@ class CategoryManager(models.Manager):
 
 class EntryManager(models.Manager):
     def get_queryset(self):
-        return super().get_queryset().filter(Q(active=True), Q(date_end__gte=date.today()) | Q(date_end=None))
+        return super().get_queryset().filter(Q(active=True), Q(date_end__gte=date.today()) | Q(date_end=None)).order_by('-id', 'priority')
 
 
 class DateManager(models.Manager):
@@ -47,6 +47,8 @@ class Entry(models.Model):
     active = models.BooleanField("Активность", default=True)
     category = models.ForeignKey(
         Category, on_delete=models.SET_NULL, null=True, blank=True)
+    priority = models.PositiveSmallIntegerField(
+        "Приоритет", default=10, null=True, blank=True)
     preview = models.ImageField("Превью", upload_to="preview/")
     detail = models.ImageField(
         "Детальная картинка", upload_to="detail/", null=True, blank=True)
