@@ -10,7 +10,7 @@ class CategoryManager(models.Manager):
 
 class EntryManager(models.Manager):
     def get_queryset(self):
-        return super().get_queryset().filter(Q(active=True), Q(date_end__gte=date.today()) | Q(date_end=None)).order_by('-id', 'priority')
+        return super().get_queryset().filter(Q(active=True), Q(date_end__gte=date.today()) | Q(date_end=None)).order_by('priority', '-id')
 
 
 class DateManager(models.Manager):
