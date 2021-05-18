@@ -66,11 +66,8 @@ class Entry(models.Model):
 
     @ cached_property
     def is_active(self):
-        if self.date_end is None:
+        if (self.date_end is None or self.date_end >= date.today()) and self.active:
             return True
-        else:
-            if self.date_end >= date.today() and self.active:
-                return True
         return False
 
     class Meta:
