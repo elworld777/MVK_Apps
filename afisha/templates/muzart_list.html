@@ -73,24 +73,26 @@
                         {{ category.text|safe|linebreaks }}
                     </div>
                     {% for entry in category.entry_set.all %}
-                    <div class="col my-3">
-                        {% if entry.detail %}
-                        <img class="w-100" src="{{ entry.detail.url }}" alt="" />
-                        {% else %}
-                        <img class="w-100" src="{{ entry.preview.url }}" alt="" />
-                        {% endif %}
-                    </div>
-                    <div class="col-8 mt-4">
-                        <div class="row h-100">
-                            <div class="col-12 price align-self-end description-ar">
-                                {{ entry.price|safe|linebreaksbr }}
-                            </div>
-                            <div class="col-12 description-ar align-self-end">
-                                {{ entry.text|safe|linebreaks }}
+                      {% if  entry.is_active %}
+                        <div class="col my-3">
+                            {% if entry.detail %}
+                            <img class="w-100" src="{{ entry.detail.url }}" alt="" />
+                            {% else %}
+                            <img class="w-100" src="{{ entry.preview.url }}" alt="" />
+                            {% endif %}
+                        </div>
+                        <div class="col-8 mt-4">
+                            <div class="row h-100">
+                                <div class="col-12 price align-self-end description-ar">
+                                    {{ entry.price|safe|linebreaksbr }}
+                                </div>
+                                <div class="col-12 description-ar align-self-end">
+                                    {{ entry.text|safe|linebreaks }}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="w-100"></div>
+                        <div class="w-100"></div>
+                      {% endif %}
                     {% endfor %}
                 {% else %}
                     {% for entry in category.entry_set.all %}
