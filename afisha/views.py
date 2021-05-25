@@ -132,6 +132,8 @@ def excurs(request):
     }
     return render(request, 'excurs_list.html', context)
 
+def exhibit(request):
+    return render(request, 'exhibit.html')
 
 def test(request):
     try:

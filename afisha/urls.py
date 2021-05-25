@@ -8,6 +8,7 @@ urlpatterns = [
     path('muzart', views.muzart, name='muzart'),
     path('excurs', views.excurs, name='excurs'),
     path('eco', views.eco, name='eco'),
+    path('exhibit', views.exhibit, name='exhibit'),
     path('test', views.test, name='test'),
     path('muzart/<int:id>', views.muzart_list, name='muzart_list'),
     path('<str:pk>', views.exhibitions, name='exhibitions'),
