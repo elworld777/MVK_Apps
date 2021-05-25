@@ -106,9 +106,9 @@ def muzart_list(request, id):
     return render(request, 'muzart_list.html', context)
 
 
-def eco(request):
+def slider(request):
     try:
-        entry = Category.objects.filter(url="eco").first(
+        entry = Category.objects.filter(url="slider").first(
         ).entry_set(manager='active_objects').all()
     except:
         entry = None
