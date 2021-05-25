@@ -6,7 +6,8 @@ from django.db.models import Count
 
 class CategoryManager(models.Manager):
     def get_queryset(self):
-        return super().get_queryset().annotate(entry_count=Count('entry'), cat_count=Count('category')).filter(Q(active=True), Q(entry_count__gt=0) | Q(cat_count__gt=0)).order_by('priority')
+        # return super().get_queryset().annotate(entry_count=Count('entry'), cat_count=Count('category')).filter(Q(active=True), Q(entry_count__gt=0) | Q(cat_count__gt=0)).order_by('priority')
+        return super().get_queryset().filter(Q(active=True)).order_by('priority')
 
 class EntryManager(models.Manager):
     def get_queryset(self):
