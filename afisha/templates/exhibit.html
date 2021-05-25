@@ -1,0 +1,11 @@
+{% extends 'nav.html' %}
+{% block main %}
+<div class="row">
+    <div class="col-12 text-center px-5 pt-5 title-50">
+        Экспонат месяца
+      </div>
+      <div class="col-12 my-5 description">
+        {{setting.exhibit.text|safe|linebreaks}}
+      </div>
+</div>
+{% endblock %}

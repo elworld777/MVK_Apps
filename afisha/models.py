@@ -97,6 +97,7 @@ class Dates(models.Model):
 class Exhibit(models.Model):
     name = models.CharField("Название", max_length=150)
     image = models.ImageField("Изображение", upload_to='gallery/')
+    text = models.TextField("Описание", null=True, blank=True)
 
     def __str__(self):
         return self.name
