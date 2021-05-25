@@ -133,7 +133,11 @@ def excurs(request):
     return render(request, 'excurs_list.html', context)
 
 def exhibit(request):
-    return render(request, 'exhibit.html')
+    setting = Setting.objects.all().first()
+    context = {
+        'setting': setting
+    }
+    return render(request, 'exhibit.html', context)
 
 def test(request):
     try:
