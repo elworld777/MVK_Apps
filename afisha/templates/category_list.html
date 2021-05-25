@@ -14,7 +14,7 @@
     <div class="row text-center cat">
     {% for category in category_list %}
       {% if category.active %}
-        <div class="col-6 offset-3 p-4 mb-4 border border-white rounded-lg"><a class="stretched-link" href="{{category.url}}{% if category.num is not None %}/{{category.num}}{% endif %}">{{category.name}}</a></div>
+        <div class="col-6 offset-3 p-4 mb-4 border border-white rounded-lg{% if category.url == "exhibit" %} exhibit{% endif %}"><a class="stretched-link" href="{{category.url}}{% if category.num is not None %}/{{category.num}}{% endif %}">{{category.name}}</a></div>
       {% endif %}
     {% endfor %}
     <div class="col-6 offset-3 p-4 mb-4 border border-white rounded-lg"><a class="stretched-link" href="/afisha/info">информация</a></div>
