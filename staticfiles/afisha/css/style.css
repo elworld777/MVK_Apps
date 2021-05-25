@@ -252,6 +252,6 @@ p {
     height: 1460px;
 }
 
-.exhibit {
+.exhibit>a {
     color: #F4AF23;
 }
