@@ -21,6 +21,7 @@ class DateManager(models.Manager):
 
 class Category(models.Model):
     name = models.CharField("Категория", max_length=150)
+    type = models.BooleanField("Слайдер", default=False)
     active = models.BooleanField("Активность", default=True)
     icon = models.ImageField(
         "Иконка", null=True, blank=True, upload_to="icon/")
