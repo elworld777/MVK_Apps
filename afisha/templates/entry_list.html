@@ -1,27 +1,5 @@
 {% extends 'nav.html' %} {% block main %}
-  {% if category.type %}
-        <div
-        id="carouselEntry"
-        class="carousel slide"
-        data-ride="carousel"
-        data-interval="0"
-      >
-        <div class="carousel-inner">
-          {% for entry in entry_list %}
-          {% if forloop.counter0 == 0 %}
-          <div class="carousel-item active">
-          {% else %}
-          <div class="carousel-item">
-          {% endif %}
-                {% if entry.preview %}
-                <img class="d-block w-100" src="{{ entry.preview.url }}" alt="" />
-                {% endif %}
-          </div>
-          {% endfor %}
-        </div>
-      </div>
-  {% else %}
-    <div class="row m-4 entry-list overflow-auto">
+    <div class="row m-4 entry-list entry-list-xl  overflow-auto">
       <div class="col-12 m-auto">
     <div class="row cat justify-content-center">
     {% for category in category_list %}
@@ -42,13 +20,13 @@
         <div class="row">
         {% for entry in entry_list %}
             {% if entry.width >= 2 %}
-                <div class="col-12 py-2">
+                <div class="col-12 col-xl-6 py-2">
                     <a href="{{ url }}/{{ forloop.counter0 }}">
                         <img src="{{ entry.preview.url }}" alt="" class="w-100">
                     </a>
                 </div>
             {% else %}
-                <div class="col-6 py-2">
+                <div class="col-6 col-xl-3 py-2">
                     <a href="{{ url }}/{{ forloop.counter0 }}">
                         <img src="{{ entry.preview.url }}" alt="" class="w-100">
                     </a>
@@ -63,5 +41,4 @@
         </div>
       {% endif %}
     </div>
-  {% endif %}
 {% endblock %}

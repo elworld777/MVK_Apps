@@ -120,6 +120,33 @@ def slider(request):
     return render(request, 'slider.html', context)
 
 
+def slider1(request):
+    try:
+        entry = Category.objects.filter(url="slider1").first(
+        ).entry_set(manager='active_objects').all()
+    except:
+        entry = None
+    context = {
+        'entry_list': entry,
+        'next': True,
+        'count': entry.count()
+    }
+    return render(request, 'slider.html', context)
+
+def slider2(request):
+    try:
+        entry = Category.objects.filter(url="slider2").first(
+        ).entry_set(manager='active_objects').all()
+    except:
+        entry = None
+    context = {
+        'entry_list': entry,
+        'next': True,
+        'count': entry.count()
+    }
+    return render(request, 'slider.html', context)
+
+
 def excurs(request):
     try:
         dates = Dates.active_objects.all().order_by('date_start')
@@ -131,6 +158,7 @@ def excurs(request):
         'count': dates.count()
     }
     return render(request, 'excurs_list.html', context)
+
 
 def exhibit(request):
     setting = Setting.objects.all().first()

@@ -1,5 +1,30 @@
 {% extends 'wrapper.html' %} {% block content %}
-<div class="container-fluid vh-100 overflow-auto p-0">
+<div class="container-fluid vh-100 overflow-auto">
+  <div class="row header header-entry align-items-center px-5 py-4">
+    <div class="col-2 text-center">
+      <img class="img-fluid" src="/media/logo.png" alt="" />
+    </div>
+    <div class="col-5">
+      <strong
+        >ЯМАЛО-НЕНЕЦКИЙ ОКРУЖНОЙ МУЗЕЙНО&#8209;ВЫСТАВОЧНЫЙ КОМПЛЕКС
+        ИМЕНИ&nbsp;И.С.ШЕМАНОВСКОГО</strong
+      >
+    </div>
+    <div class="col-5">
+      <strong>
+        <p>режим работы:</p>
+      </strong>
+      <p>
+        вт-пт 10:00 - 19:30,
+      </p>
+      <p>
+        сб-вс 11:00 - 18:00,
+      </p>
+       <p> пн
+ выходной
+      </p>
+    </div>
+  </div>
   {% block main %}
   {% endblock %}
   <div class="row footer justify-content-center">
@@ -16,7 +41,7 @@
       <a href="/afisha" class="stretched-link"></a>
     </div>
     <div class="col-2">
-    {% if entry_list.count > 1 %}
+    {% if count > 1 and next %}
       <a
         class="carousel-control-next"
         href="#carouselEntry"

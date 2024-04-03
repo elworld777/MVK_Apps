@@ -14,7 +14,7 @@
         {% block content %}
         {% endblock %}
         {% if setting.image %}
-            <img class="exp w-100" src="{{setting.image.url}}" alt="">
+            <div class="exp-z vw-100 vh-100 overflow-auto"><img class="w-100" src="{{setting.image.url}}" alt=""></div>
         {% endif %}
     </body>
     <script src="{% static "js/jquery-3.5.1.min.js" %}"></script>
