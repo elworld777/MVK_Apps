@@ -257,11 +257,10 @@ p {
 }
 
 .container-fluid{
-    position: absolute;
+    position: relative;
 }
 
 .exp-z{
     position: absolute;
     z-index: 999;
-    pointer-events: none;
 }
