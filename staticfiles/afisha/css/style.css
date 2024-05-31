@@ -256,11 +256,8 @@ p {
     color: #F4AF23;
 }
 
-.container-fluid{
-    position: relative;
-}
-
 .exp-z{
     position: absolute;
     z-index: 999;
+    top: 0;
 }
