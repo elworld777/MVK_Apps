@@ -255,3 +255,13 @@ p {
 .exhibit>a {
     color: #F4AF23;
 }
+
+.container-fluid{
+    position: absolute;
+}
+
+.exp-z{
+    position: absolute;
+    z-index: 999;
+    pointer-events: none;
+}
